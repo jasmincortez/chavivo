@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import Link from "@mui/material/Link"
 import theme from "./theme"
+import { isCurrentPath } from "./Router"
 
 function BuiltBy() {
   return (
@@ -27,6 +28,10 @@ function BuiltBy() {
 }
 
 export default function StickyFooter() {
+  if (isCurrentPath("/home")) {
+    return null
+  }
+
   return (
     <Box
       component="footer"

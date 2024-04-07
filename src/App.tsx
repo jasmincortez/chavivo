@@ -1,28 +1,28 @@
-import StickyFooter from "./StickyFooter"
-import { useState } from "react"
-import AppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import Divider from "@mui/material/Divider"
-import Drawer from "@mui/material/Drawer"
-import IconButton from "@mui/material/IconButton"
-import List from "@mui/material/List"
-import MenuIcon from "@mui/icons-material/Menu"
-import Toolbar from "@mui/material/Toolbar"
-import Typography from "@mui/material/Typography"
-import { Outlet } from "react-router-dom"
-import { routes, RouterLink, ListRouterLink, isCurrentPath } from "./Router"
-import { Container, CssBaseline, Stack } from "@mui/material"
-import theme from "./theme"
-import WhatsAppBtn from "./components/WhatsAppBtn"
+import StickyFooter from "./StickyFooter";
+import { useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { Outlet } from "react-router-dom";
+import { routes, RouterLink, ListRouterLink, isCurrentPath } from "./Router";
+import { Container, CssBaseline, Stack } from "@mui/material";
+import theme from "./theme";
+import WhatsAppBtn from "./components/WhatsAppBtn";
 
-const drawerWidth = 240
+const drawerWidth = 240;
 
 export default function App() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(prevState => !prevState)
-  }
+    setMobileOpen((prevState) => !prevState);
+  };
 
   const drawer = (
     <Box
@@ -33,20 +33,16 @@ export default function App() {
         height: "100dvh",
       }}
     >
-      <Typography variant="h6" color="secondary" sx={{ my: 2 }}>
-        {import.meta.env.VITE_USER_NAME}
-      </Typography>
-      <Divider sx={{ backgroundColor: theme.palette.highlight.main }} />
       <List>
-        {routes.map(route => (
+        {routes.map((route) => (
           <ListRouterLink to={route.to} label={route.label} key={route.label} />
         ))}
       </List>
     </Box>
-  )
+  );
 
   const container =
-    window !== undefined ? () => window.document.body : undefined
+    window !== undefined ? () => window.document.body : undefined;
 
   const homeBg = {
     backgroundImage:
@@ -54,7 +50,7 @@ export default function App() {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-  }
+  };
 
   return (
     <Box
@@ -79,17 +75,10 @@ export default function App() {
             <MenuIcon />
           </IconButton>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            {routes.map(route => (
+            {routes.map((route) => (
               <RouterLink to={route.to} label={route.label} key={route.label} />
             ))}
           </Box>
-          {/* <Typography
-            variant="h6"
-            component="div"
-            sx={{display: { xs: "none", sm: "block" } }}
-          >
-            {import.meta.env.VITE_USER_NAME}
-          </Typography> */}
         </Toolbar>
       </AppBar>
       <nav>
@@ -129,5 +118,5 @@ export default function App() {
         <StickyFooter />
       </Stack>
     </Box>
-  )
+  );
 }

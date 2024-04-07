@@ -14,6 +14,7 @@ function BuiltBy() {
       {
         "Kombuchá artesanal fabricado no Rio de Janeiro • Quer falar com a gente? "
       }
+      <br />
       <Link color="inherit" href="https://wa.me/5521984278801">
         WhatsApp
       </Link>

@@ -2,10 +2,13 @@ import { PaletteColor, createTheme } from "@mui/material/styles"
 import { red } from "@mui/material/colors"
 
 const tools = createTheme()
+// dark chavivo
 const primary = tools.palette.augmentColor({ color: { main: "#80CDC6" } })
+// light chavivo
 const secondary = tools.palette.augmentColor({ color: { main: "#a4d8d9" } })
-const containerBg = tools.palette.augmentColor({ color: { main: "#ffffff" } })
+// purple
 const highlight = tools.palette.augmentColor({ color: { main: "#624cab" } })
+// black
 const font = tools.palette.augmentColor({ color: { main: "#000000" } })
 
 // A custom theme for this app
@@ -19,14 +22,14 @@ const theme = createTheme({
       main: red.A400,
     },
     background: {
-      default: primary.light,
+      default: primary.main,
     },
   },
   components: {
     MuiContainer: {
       styleOverrides: {
         root: {
-          backgroundColor: containerBg.main,
+          backgroundColor: primary.main,
         },
       },
     },
@@ -34,6 +37,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: "Poppins",
+        },
+      },
+    },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          color: primary.dark,
         },
       },
     },

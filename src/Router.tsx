@@ -3,26 +3,26 @@ import {
   createBrowserRouter,
   Navigate,
   useLocation,
-} from "react-router-dom";
-import NotFound from "./NotFound";
-import Home from "./Home";
-import SobreNos from "./SobreNos";
-import Sabores from "./Sabores";
-import Map from "./Map";
-import Duvidas from "./Duvidas";
-import InfoKbc from "./InfoKbc";
-import App from "./App";
-import theme from "./theme";
-import { Button, ListItem } from "@mui/material";
+} from "react-router-dom"
+import NotFound from "./NotFound"
+import Home from "./Home"
+import SobreNos from "./SobreNos"
+import Sabores from "./Sabores"
+import Map from "./Map"
+import Duvidas from "./Duvidas"
+import InfoKbc from "./InfoKbc"
+import App from "./App"
+import theme from "./theme"
+import { Button, ListItem } from "@mui/material"
 
 export interface RouteDefinition {
-  label: string;
-  aria: string;
-  to: string;
-  element: JSX.Element;
+  label: string
+  aria: string
+  to: string
+  element: JSX.Element
 }
 
-export const BASE_URL = "/chavivo/";
+export const BASE_URL = "/chavivo/"
 
 export const routes: RouteDefinition[] = [
   {
@@ -62,13 +62,12 @@ export const routes: RouteDefinition[] = [
     to: "duvidas",
     element: <Duvidas />,
   },
-];
+]
 
 export const isCurrentPath = (path: string) => {
-  const location = useLocation();
-  console.log(location.pathname, path);
-  return location.pathname === path;
-};
+  const location = useLocation()
+  return location.pathname === path
+}
 
 export const router = createBrowserRouter(
   [
@@ -81,11 +80,11 @@ export const router = createBrowserRouter(
           index: true,
           element: <Navigate to="/home" replace />,
         },
-        ...routes.map((route) => {
+        ...routes.map(route => {
           return {
             path: route.to,
             element: route.element,
-          };
+          }
         }),
       ],
     },
@@ -93,27 +92,30 @@ export const router = createBrowserRouter(
   {
     basename: BASE_URL,
   }
-);
+)
 
 export type RouterLinkProps = {
-  to: string;
-  label: string;
-  color?: string;
-};
+  to: string
+  label: string
+  color?: string
+}
 
 export function RouterLink(props: RouterLinkProps) {
+  const color = isCurrentPath(`/${props.to}`)
+    ? "#FFFFFF"
+    : theme.palette.font.main
   return (
     <Link to={props.to}>
       <Button
         sx={{
-          color: props.color || theme.palette.font.main,
+          color: props.color || color,
           ml: 2,
         }}
       >
         {props.label}
       </Button>
     </Link>
-  );
+  )
 }
 
 export function ListRouterLink(props: RouterLinkProps) {
@@ -134,5 +136,5 @@ export function ListRouterLink(props: RouterLinkProps) {
         </Button>
       </Link>
     </ListItem>
-  );
+  )
 }

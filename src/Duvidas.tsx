@@ -1,11 +1,11 @@
-import { Avatar, Box, Button, Stack } from "@mui/material"
-import Typography from "@mui/material/Typography"
-import InstagramIcon from "@mui/icons-material/Instagram"
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail"
-import MusicNoteIcon from "@mui/icons-material/MusicNote"
-import YouTubeIcon from "@mui/icons-material/YouTube"
+import { Avatar, Box, Button, Stack } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
-export default function Contact() {
+export default function Duvidas() {
   return (
     <Box>
       <Typography variant="h2" sx={{ my: 3 }}>
@@ -49,5 +49,5 @@ export default function Contact() {
         </Button>
       </Stack>
     </Box>
-  )
+  );
 }

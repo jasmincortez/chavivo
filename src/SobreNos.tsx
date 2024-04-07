@@ -4,7 +4,7 @@ import {
   ImageListItem,
   ImageListItemBar,
   Typography,
-} from "@mui/material"
+} from "@mui/material";
 
 const headshots = [
   {
@@ -55,9 +55,9 @@ const headshots = [
     img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
     author: "© Author's Name",
   },
-]
+];
 
-export default function Bio() {
+export default function SobreNos() {
   return (
     <Box>
       <Typography variant="h2" sx={{ mt: 3 }}>
@@ -67,7 +67,7 @@ export default function Bio() {
         Bio description
       </Typography>
       <ImageList sx={{ mx: "auto" }} cols={3}>
-        {headshots.map(item => (
+        {headshots.map((item) => (
           <ImageListItem key={item.img}>
             <img
               srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
@@ -81,5 +81,5 @@ export default function Bio() {
         ))}
       </ImageList>
     </Box>
-  )
+  );
 }

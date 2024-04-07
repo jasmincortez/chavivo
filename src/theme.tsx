@@ -42,6 +42,7 @@ const theme = createTheme({
         root: {
           fontFamily: "Playfair Display",
           textTransform: "lowercase",
+          fontWeight: "bold",
         },
       },
     },

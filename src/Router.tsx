@@ -20,7 +20,7 @@ export interface RouteDefinition {
   element: JSX.Element
 }
 
-export const BASE_URL = "/cha-vivo/"
+export const BASE_URL = "/chavivo/"
 
 export const routes: RouteDefinition[] = [
   {

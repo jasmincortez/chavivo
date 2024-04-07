@@ -1,27 +1,27 @@
-import StickyFooter from "./StickyFooter"
-import { useState } from "react"
-import AppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import Divider from "@mui/material/Divider"
-import Drawer from "@mui/material/Drawer"
-import IconButton from "@mui/material/IconButton"
-import List from "@mui/material/List"
-import MenuIcon from "@mui/icons-material/Menu"
-import Toolbar from "@mui/material/Toolbar"
-import Typography from "@mui/material/Typography"
-import { Outlet } from "react-router-dom"
-import { routes, RouterLink, ListRouterLink } from "./Router"
-import { Container, CssBaseline, Stack } from "@mui/material"
-import theme from "./theme"
+import StickyFooter from "./StickyFooter";
+import { useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { Outlet } from "react-router-dom";
+import { routes, RouterLink, ListRouterLink, isCurrentPath } from "./Router";
+import { Container, CssBaseline, Stack } from "@mui/material";
+import theme from "./theme";
 
-const drawerWidth = 240
+const drawerWidth = 240;
 
 export default function App() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(prevState => !prevState)
-  }
+    setMobileOpen((prevState) => !prevState);
+  };
 
   const drawer = (
     <Box
@@ -37,15 +37,15 @@ export default function App() {
       </Typography>
       <Divider sx={{ backgroundColor: theme.palette.highlight.main }} />
       <List>
-        {routes.map(route => (
+        {routes.map((route) => (
           <ListRouterLink to={route.to} label={route.label} key={route.label} />
         ))}
       </List>
     </Box>
-  )
+  );
 
   const container =
-    window !== undefined ? () => window.document.body : undefined
+    window !== undefined ? () => window.document.body : undefined;
 
   return (
     <Box
@@ -71,7 +71,7 @@ export default function App() {
             <MenuIcon />
           </IconButton>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            {routes.map(route => (
+            {routes.map((route) => (
               <RouterLink to={route.to} label={route.label} key={route.label} />
             ))}
           </Box>
@@ -108,12 +108,17 @@ export default function App() {
         <Container
           maxWidth="sm"
           component="main"
-          sx={{ mt: 10, minHeight: "100dvh", borderRadius: "1rem" }}
+          sx={{
+            mt: 10,
+            minHeight: "100dvh",
+            borderRadius: "1rem",
+            backgroundColor: isCurrentPath("/home") ? "transparent" : "default",
+          }}
         >
           <Outlet />
         </Container>
         <StickyFooter />
       </Stack>
     </Box>
-  )
+  );
 }

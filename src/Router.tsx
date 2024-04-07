@@ -64,9 +64,10 @@ export const routes: RouteDefinition[] = [
   },
 ];
 
-export const useCurrentPath = () => {
+export const isCurrentPath = (path: string) => {
   const location = useLocation();
-  return location.pathname;
+  console.log(location.pathname, path);
+  return location.pathname === path;
 };
 
 export const router = createBrowserRouter(

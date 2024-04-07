@@ -64,7 +64,10 @@ export default function App() {
       }}
     >
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar
+        component="nav"
+        sx={{ backgroundColor: theme.palette.secondary.main }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"

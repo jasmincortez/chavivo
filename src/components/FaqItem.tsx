@@ -1,37 +1,37 @@
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
-import FilterVintageIcon from "@mui/icons-material/FilterVintage";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import { useState } from "react";
+import List from "@mui/material/List"
+import ListItemButton from "@mui/material/ListItemButton"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
+import Collapse from "@mui/material/Collapse"
+import EmojiNatureIcon from "@mui/icons-material/EmojiNature"
+import FilterVintageIcon from "@mui/icons-material/FilterVintage"
+import ExpandLess from "@mui/icons-material/ExpandLess"
+import ExpandMore from "@mui/icons-material/ExpandMore"
+import { useState } from "react"
 
 export interface Faq {
-  question: string;
-  answer?: string;
-  children?: JSX.Element;
+  question: string
+  answer?: string
+  children?: JSX.Element
 }
 
 export default function FaqItem(props: Faq) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const handleClick = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
   function Answer() {
     if (props.children) {
-      return props.children;
+      return props.children
     }
 
     if (props.answer) {
-      return <ListItemText primary={props.answer} />;
+      return <ListItemText primary={props.answer} />
     }
 
-    return null;
+    return null
   }
 
   return (
@@ -40,7 +40,10 @@ export default function FaqItem(props: Faq) {
         <ListItemIcon>
           <FilterVintageIcon />
         </ListItemIcon>
-        <ListItemText primary={props.question} />
+        <ListItemText
+          primary={props.question}
+          sx={{ "& .MuiTypography-root": { fontWeight: "bold" } }}
+        />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -55,5 +58,5 @@ export default function FaqItem(props: Faq) {
         </List>
       </Collapse>
     </>
-  );
+  )
 }

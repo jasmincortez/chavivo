@@ -1,17 +1,17 @@
-import { Box } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
-import FilterVintageIcon from "@mui/icons-material/FilterVintage";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import FaqItem from "./components/FaqItem";
+import { Box } from "@mui/material"
+import Typography from "@mui/material/Typography"
+import List from "@mui/material/List"
+import ListItemButton from "@mui/material/ListItemButton"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
+import Collapse from "@mui/material/Collapse"
+import EmojiNatureIcon from "@mui/icons-material/EmojiNature"
+import FilterVintageIcon from "@mui/icons-material/FilterVintage"
+import ExpandLess from "@mui/icons-material/ExpandLess"
+import ExpandMore from "@mui/icons-material/ExpandMore"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import FaqItem from "./components/FaqItem"
 
 export default function Duvidas() {
   return (
@@ -20,11 +20,7 @@ export default function Duvidas() {
         Dúvidas
       </Typography>
 
-      <List
-        sx={{ width: "100%", bgcolor: "background.paper" }}
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-      >
+      <List sx={{ width: "100%", bgcolor: "transparent" }}>
         {/* FAQ 1 */}
         <FaqItem question="O que é o Kombuchá e como ele é produzido?">
           <ListItemText>
@@ -66,5 +62,5 @@ export default function Duvidas() {
         {/* FAQ 5 */}
       </List>
     </Box>
-  );
+  )
 }

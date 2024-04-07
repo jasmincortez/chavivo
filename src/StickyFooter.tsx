@@ -6,17 +6,15 @@ import theme from "./theme"
 
 function BuiltBy() {
   return (
-    <Typography
-      align="center"
-      variant="body2"
-      color={theme.palette.secondary.main}
-    >
+    <Typography align="center" variant="body2" color={theme.palette.font.main}>
       {"Built by "}
       <Link color="inherit" href="https://jasmincortez.github.io/WebDev/">
         Jasmin Cortez
       </Link>
-      {", "}
-      {new Date().getFullYear()}
+      {" & "}
+      <Link color="inherit" href="https://edwardsimmons.github.io/portfolio/">
+        Edward Simmons
+      </Link>
       {"."}
     </Typography>
   )
@@ -25,29 +23,23 @@ function BuiltBy() {
 export default function StickyFooter() {
   return (
     <Box
+      component="footer"
       sx={{
-        mt: 2,
+        py: 3,
+        px: 2,
+        mt: "auto",
+        backgroundColor: theme.palette.primary.light,
       }}
     >
-      <Box
-        component="footer"
+      <Container
+        maxWidth="sm"
         sx={{
-          py: 3,
-          px: 2,
-          mt: "auto",
           backgroundColor: theme.palette.primary.light,
+          color: theme.palette.secondary.main,
         }}
       >
-        <Container
-          maxWidth="sm"
-          sx={{
-            backgroundColor: theme.palette.primary.light,
-            color: theme.palette.secondary.main,
-          }}
-        >
-          <BuiltBy />
-        </Container>
-      </Box>
+        <BuiltBy />
+      </Container>
     </Box>
   )
 }

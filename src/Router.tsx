@@ -90,7 +90,7 @@ export function RouterLink(props: RouterLinkProps) {
     <Link to={props.to}>
       <Button
         sx={{
-          color: props.color || theme.palette.secondary.main,
+          color: props.color || theme.palette.font.main,
           ml: 2,
         }}
       >
@@ -110,7 +110,7 @@ export function ListRouterLink(props: RouterLinkProps) {
         <Button
           fullWidth
           sx={{
-            color: theme.palette.secondary.main,
+            color: theme.palette.font.main,
             my: 1,
           }}
         >

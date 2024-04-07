@@ -1,6 +1,6 @@
-# acting-portfolio-boilerplate
+# Chá Vivo
 
-The aim of this project is for it to work as a simple scaffold for an actor's personal portfolio website.
+This repo acts as the codebase for the `br.com.chavivo` domain.
 
 ## Tech stack
 

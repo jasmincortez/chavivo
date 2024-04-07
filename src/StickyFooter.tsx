@@ -6,16 +6,21 @@ import theme from "./theme"
 
 function BuiltBy() {
   return (
-    <Typography align="center" variant="body2" color={theme.palette.font.main}>
-      {"Built by "}
-      <Link color="inherit" href="https://jasmincortez.github.io/WebDev/">
-        Jasmin Cortez
+    <Typography
+      align="center"
+      variant="body2"
+      color={theme.palette.secondary.main}
+    >
+      {
+        "Kombuchá artesanal fabricado no Rio de Janeiro • Quer falar com a gente? "
+      }
+      <Link color="inherit" href="https://wa.me/5521984278801">
+        WhatsApp
       </Link>
-      {" & "}
-      <Link color="inherit" href="https://edwardsimmons.github.io/portfolio/">
-        Edward Simmons
+      {" ou "}
+      <Link color="inherit" href="mailto:contato@chavivo.com.br">
+        contato@chavivo.com.br
       </Link>
-      {"."}
     </Typography>
   )
 }
@@ -25,16 +30,15 @@ export default function StickyFooter() {
     <Box
       component="footer"
       sx={{
-        py: 3,
-        px: 2,
-        mt: "auto",
-        backgroundColor: theme.palette.primary.light,
+        py: 2,
+        mt: 2,
+        backgroundColor: "#000000",
       }}
     >
       <Container
         maxWidth="sm"
         sx={{
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: "#000000",
           color: theme.palette.secondary.main,
         }}
       >

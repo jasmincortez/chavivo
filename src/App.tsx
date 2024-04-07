@@ -13,6 +13,7 @@ import { Outlet } from "react-router-dom"
 import { routes, RouterLink, ListRouterLink, isCurrentPath } from "./Router"
 import { Container, CssBaseline, Stack } from "@mui/material"
 import theme from "./theme"
+import WhatsAppBtn from "./components/WhatsAppBtn"
 
 const drawerWidth = 240
 
@@ -121,6 +122,7 @@ export default function App() {
         >
           <Outlet />
         </Container>
+        <WhatsAppBtn />
         <StickyFooter />
       </Stack>
     </Box>

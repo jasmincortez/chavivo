@@ -1,85 +1,53 @@
-import {
-  Box,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-} from "@mui/material";
-
-const headshots = [
-  {
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-    author: "© Author's Name",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-    author: "© Author's Name",
-  },
-];
+import { Box, Container, Typography } from "@mui/material";
 
 export default function SobreNos() {
   return (
     <Box>
-      <Typography variant="h2" sx={{ mt: 3 }}>
-        Bio
+      {/* Pictures of staff em carousel
+      Fix posiition img
+      Figure out design for text display
+      */}
+      <img
+        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/6e7e583e71fc74bb9245726d6fc24f0f.png"
+        width={"50%"}
+      />
+
+      <Typography
+        sx={{
+          fontFamily: "Playfair Display",
+          fontWeight: "bold",
+          fontSize: "1.25rem",
+        }}
+      >
+        Bem-vindo à Chá Vivo, uma fábrica de kombucha sediada no coração do Rio
+        de Janeiro!
       </Typography>
-      <Typography variant="body1" sx={{ my: 1 }}>
-        Bio description
+
+      <Typography>
+        <br />
+        <br />
+        {
+          "Nascida do amor pela saúde, bem-estar e sabores autênticos, a Chá Vivo é uma das pioneiras na produção de Kombuchá do Brasil. Fazemos sempre questão de nos mantermos fiéis ao método ancestral e tradicional de produção do nosso kombucha."
+        }
+        <br />
+        <br />
+        {
+          "Aqui na Chá Vivo, acreditamos que cada gole de kombuchá deve ser uma jornada de prazer para o paladar e um impulso revigorante para o corpo. Por isso, dedicamos nossos esforços para criar os melhores sabores, utilizando ingredientes orgânicos, ervas frescas e frutas selecionadas cuidadosamente. Com zero adição de insumos artificiais ou ultraprocessados!"
+        }
+        <br />
+        <br />
+        {
+          "Nossos processos de  fermentação são conduzidos com habilidade e cuidado, assegurando que cada garrafa de Chá Vivo esteja repleta de probióticos benéficos e nutrientes essenciais. Além disso, nosso compromisso com a sustentabilidade ambiental nos impulsiona a adotar práticas ecológicas nas etapas de nossa produção."
+        }
+        <br />
+        <br />
+        {
+          "Aqui, somos mais do que uma fábrica de kombucha; somos uma família apaixonada por promover uma vida mais saudável e vibrante para todos. Valorizamos cada cliente e parceiro, e nosso objetivo é compartilhar os benefícios incríveis da kombucha com o mundo."
+        }
+        <br />
+        <br />
+        {"Kombuchá é Chá Vivo, Chá Vivo é saúde!"}
       </Typography>
-      <ImageList sx={{ mx: "auto" }} cols={3}>
-        {headshots.map((item) => (
-          <ImageListItem key={item.img}>
-            <img
-              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-              alt="headshot-img"
-              loading="lazy"
-              style={{ borderRadius: "0.5rem" }}
-            />
-            <ImageListItemBar subtitle={item.author} position="below" />
-          </ImageListItem>
-        ))}
-      </ImageList>
     </Box>
   );
 }

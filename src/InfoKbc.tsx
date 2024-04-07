@@ -3,9 +3,8 @@ import { Box, Typography } from "@mui/material";
 export default function InfoKbc() {
   return (
     <Box>
-      <Typography variant="h2" sx={{ mt: 3 }}>
-        Projects
-      </Typography>
+      {/* Img with benefits */}
+      {/* Stack with info like Sobre Nós */}
     </Box>
   );
 }

@@ -6,6 +6,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 import FaqItem from "./components/FaqItem";
 
+// ADD ICONS FROM CHA VIVO
+
 export default function Duvidas() {
   return (
     <Box>

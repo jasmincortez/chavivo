@@ -13,6 +13,7 @@ export default function SobreNos() {
       />
 
       <Typography
+        textAlign={"center"}
         sx={{
           fontFamily: "Playfair Display",
           fontWeight: "bold",
@@ -23,7 +24,7 @@ export default function SobreNos() {
         de Janeiro!
       </Typography>
 
-      <Typography>
+      <Typography textAlign={"justify"}>
         <br />
         <br />
         {
@@ -37,7 +38,7 @@ export default function SobreNos() {
         <br />
         <br />
         {
-          "Nossos processos de  fermentação são conduzidos com habilidade e cuidado, assegurando que cada garrafa de Chá Vivo esteja repleta de probióticos benéficos e nutrientes essenciais. Além disso, nosso compromisso com a sustentabilidade ambiental nos impulsiona a adotar práticas ecológicas nas etapas de nossa produção."
+          "Nossos processos de fermentação são conduzidos com habilidade e cuidado, assegurando que cada garrafa de Chá Vivo esteja repleta de probióticos benéficos e nutrientes essenciais. Além disso, nosso compromisso com a sustentabilidade ambiental nos impulsiona a adotar práticas ecológicas nas etapas de nossa produção."
         }
         <br />
         <br />

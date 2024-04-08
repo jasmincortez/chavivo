@@ -97,18 +97,16 @@ export const router = createBrowserRouter(
 export type RouterLinkProps = {
   to: string
   label: string
-  color?: string
 }
 
 export function RouterLink(props: RouterLinkProps) {
-  const color = isCurrentPath(`/${props.to}`)
-    ? "#FFFFFF"
-    : theme.palette.font.main
   return (
     <Link to={props.to}>
       <Button
         sx={{
-          color: props.color || color,
+          color: isCurrentPath(`/${props.to}`)
+            ? theme.palette.highlight.main
+            : theme.palette.font.main,
           ml: 2,
         }}
       >
@@ -128,7 +126,9 @@ export function ListRouterLink(props: RouterLinkProps) {
         <Button
           fullWidth
           sx={{
-            color: theme.palette.font.main,
+            color: isCurrentPath(`/${props.to}`)
+              ? theme.palette.highlight.main
+              : theme.palette.font.main,
             my: 1,
           }}
         >

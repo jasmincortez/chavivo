@@ -6,8 +6,8 @@ const tools = createTheme()
 const primary = tools.palette.augmentColor({ color: { main: "#80CDC6" } })
 // light chavivo
 const secondary = tools.palette.augmentColor({ color: { main: "#a4d8d9" } })
-// purple
-const highlight = tools.palette.augmentColor({ color: { main: "#624cab" } })
+// white
+const highlight = tools.palette.augmentColor({ color: { main: "#FFFFFF" } })
 // black
 const font = tools.palette.augmentColor({ color: { main: "#000000" } })
 

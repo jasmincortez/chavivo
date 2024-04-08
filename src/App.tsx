@@ -1,28 +1,28 @@
-import StickyFooter from "./StickyFooter";
-import { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import { Outlet } from "react-router-dom";
-import { routes, RouterLink, ListRouterLink, isCurrentPath } from "./Router";
-import { Container, CssBaseline, Stack } from "@mui/material";
-import theme from "./theme";
-import WhatsAppBtn from "./components/WhatsAppBtn";
+import StickyFooter from "./StickyFooter"
+import { useState } from "react"
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Divider from "@mui/material/Divider"
+import Drawer from "@mui/material/Drawer"
+import IconButton from "@mui/material/IconButton"
+import List from "@mui/material/List"
+import MenuIcon from "@mui/icons-material/Menu"
+import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
+import { Outlet } from "react-router-dom"
+import { routes, RouterLink, ListRouterLink, isCurrentPath } from "./Router"
+import { Container, CssBaseline, Stack } from "@mui/material"
+import theme from "./theme"
+import WhatsAppBtn from "./components/WhatsAppBtn"
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 export default function App() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+    setMobileOpen(prevState => !prevState)
+  }
 
   const drawer = (
     <Box
@@ -34,15 +34,15 @@ export default function App() {
       }}
     >
       <List>
-        {routes.map((route) => (
+        {routes.map(route => (
           <ListRouterLink to={route.to} label={route.label} key={route.label} />
         ))}
       </List>
     </Box>
-  );
+  )
 
   const container =
-    window !== undefined ? () => window.document.body : undefined;
+    window !== undefined ? () => window.document.body : undefined
 
   const homeBg = {
     backgroundImage:
@@ -50,7 +50,7 @@ export default function App() {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-  };
+  }
 
   return (
     <Box
@@ -62,23 +62,25 @@ export default function App() {
       <CssBaseline />
       <AppBar
         component="nav"
-        sx={{ backgroundColor: theme.palette.secondary.main }}
+        elevation={0}
+        sx={{ backgroundColor: "transparent" }}
       >
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <IconButton
-            color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, backgroundColor: "#000000", color: "#FFFFFF" }}
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            {routes.map((route) => (
-              <RouterLink to={route.to} label={route.label} key={route.label} />
-            ))}
-          </Box>
+          <img
+            src="https://www.chavivo.com.br/site/wp-content/themes/chavivo/assets/img/logo-cha-vivo.png"
+            height="50px"
+            style={{
+              visibility: isCurrentPath("/home") ? "hidden" : "visible",
+            }}
+          />
         </Toolbar>
       </AppBar>
       <nav>
@@ -91,7 +93,6 @@ export default function App() {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -118,5 +119,5 @@ export default function App() {
         <StickyFooter />
       </Stack>
     </Box>
-  );
+  )
 }

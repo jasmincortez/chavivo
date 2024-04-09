@@ -9,9 +9,7 @@ export default function SobreNos() {
         alignItems: "center",
       }}
     >
-      {/* Pictures of staff em carousel
-      Figure out design for text display
-      */}
+      {/* Pictures of staff em carousel */}
 
       <Typography
         textAlign={"center"}

@@ -1,4 +1,4 @@
-import { Box, List, ListItem, Stack, Typography } from "@mui/material"
+import { Box, List, ListItem, Stack, Typography } from "@mui/material";
 
 export default function InfoKbc() {
   return (
@@ -9,7 +9,7 @@ export default function InfoKbc() {
         alignItems="center"
         spacing={1}
         width={"100%"}
-        sx={{ mt: 10, mb: 10 }}
+        sx={{ mb: 10 }}
       >
         <img
           width={"20%"}
@@ -105,5 +105,5 @@ export default function InfoKbc() {
         </ListItem>
       </List>
     </Box>
-  )
+  );
 }

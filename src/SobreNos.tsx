@@ -1,15 +1,20 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material"
 
 export default function SobreNos() {
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       {/* Pictures of staff em carousel
-      Fix posiition img
       Figure out design for text display
       */}
       <img
         src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/6e7e583e71fc74bb9245726d6fc24f0f.png"
-        width={"50%"}
+        width="240px"
       />
 
       <Typography
@@ -49,5 +54,5 @@ export default function SobreNos() {
         {"Kombuchá é Chá Vivo, Chá Vivo é saúde!"}
       </Typography>
     </Box>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-import { PaletteColor, createTheme } from "@mui/material/styles"
-import { red } from "@mui/material/colors"
+import { PaletteColor, createTheme } from "@mui/material/styles";
+import { red } from "@mui/material/colors";
 
-const tools = createTheme()
+const tools = createTheme();
 // dark chavivo
-const primary = tools.palette.augmentColor({ color: { main: "#80CDC6" } })
+const primary = tools.palette.augmentColor({ color: { main: "#80CDC6" } });
 // light chavivo
-const secondary = tools.palette.augmentColor({ color: { main: "#a4d8d9" } })
-// purple
-const highlight = tools.palette.augmentColor({ color: { main: "#624cab" } })
+const secondary = tools.palette.augmentColor({ color: { main: "#a4d8d9" } });
+// white
+const highlight = tools.palette.augmentColor({ color: { main: "#FFFFFF" } });
 // black
-const font = tools.palette.augmentColor({ color: { main: "#000000" } })
+const font = tools.palette.augmentColor({ color: { main: "#000000" } });
 
 // A custom theme for this app
 const theme = createTheme({
@@ -60,17 +60,17 @@ const theme = createTheme({
       },
     },
   },
-})
+});
 
-export default theme
+export default theme;
 
 declare module "@mui/material/styles" {
   interface Palette {
-    highlight: PaletteColor
-    font: PaletteColor
+    highlight: PaletteColor;
+    font: PaletteColor;
   }
   interface PaletteOptions {
-    highlight: PaletteColor
-    font: PaletteColor
+    highlight: PaletteColor;
+    font: PaletteColor;
   }
 }

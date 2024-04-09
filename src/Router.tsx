@@ -20,6 +20,7 @@ export interface RouteDefinition {
   aria: string
   to: string
   element: JSX.Element
+  render: boolean
 }
 
 export const BASE_URL = "/chavivo/"
@@ -30,30 +31,35 @@ export const routes: RouteDefinition[] = [
     aria: "Navigate to home",
     to: "home",
     element: <Home />,
+    render: false,
   },
   {
     label: "sabores",
     aria: "Navigate to sabores",
     to: "sabores",
     element: <Sabores />,
+    render: true,
   },
   {
     label: "sobre nós",
     aria: "Navigate to about us",
     to: "sobre-nos",
     element: <SobreNos />,
+    render: true,
   },
   {
     label: "onde encontrar?",
     aria: "Navigate to map",
     to: "onde-encontrar",
     element: <Map />,
+    render: true,
   },
   {
     label: "o que é kombucha?",
     aria: "Navigate to infokbc",
     to: "o-que-e-kombucha",
     element: <InfoKbc />,
+    render: true,
   },
 
   {
@@ -61,6 +67,7 @@ export const routes: RouteDefinition[] = [
     aria: "Navigate to duvidas",
     to: "duvidas",
     element: <Duvidas />,
+    render: true,
   },
 ]
 
@@ -97,19 +104,16 @@ export const router = createBrowserRouter(
 export type RouterLinkProps = {
   to: string
   label: string
-  color?: string
 }
 
 export function RouterLink(props: RouterLinkProps) {
-  const color = isCurrentPath(`/${props.to}`)
-    ? "#FFFFFF"
-    : theme.palette.font.main
   return (
     <Link to={props.to}>
       <Button
         sx={{
-          color: props.color || color,
-          ml: 2,
+          color: isCurrentPath(`/${props.to}`)
+            ? theme.palette.highlight.main
+            : theme.palette.font.main,
         }}
       >
         {props.label}
@@ -128,7 +132,9 @@ export function ListRouterLink(props: RouterLinkProps) {
         <Button
           fullWidth
           sx={{
-            color: theme.palette.font.main,
+            color: isCurrentPath(`/${props.to}`)
+              ? theme.palette.highlight.main
+              : theme.palette.font.main,
             my: 1,
           }}
         >

@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 
 export default function WhatsAppBtn() {
   const [isBelowFooter, setisBelowFooter] = useState(false)
-  const footerHeight = document.getElementById("footer")?.clientHeight || 0
 
   const handleScroll = () => {
+    const footerHeight = document.getElementById("footer")?.clientHeight || 0
     const scrollPosn = Math.ceil(window.innerHeight + window.scrollY)
     const spaceAboveFooter =
       document.documentElement.scrollHeight - footerHeight

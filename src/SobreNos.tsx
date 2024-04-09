@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material";
 
 export default function SobreNos() {
   return (
@@ -12,10 +12,6 @@ export default function SobreNos() {
       {/* Pictures of staff em carousel
       Figure out design for text display
       */}
-      <img
-        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/6e7e583e71fc74bb9245726d6fc24f0f.png"
-        width="240px"
-      />
 
       <Typography
         textAlign={"center"}
@@ -23,15 +19,18 @@ export default function SobreNos() {
           fontFamily: "Playfair Display",
           fontWeight: "bold",
           fontSize: "1.25rem",
+          mb: 3,
         }}
       >
-        Bem-vindo à Chá Vivo, uma fábrica de kombucha sediada no coração do Rio
-        de Janeiro!
+        {"Bem-vindo à Chá Vivo, uma fábrica de kombucha"}
+        <br />
+        {"sediada no coração do Rio de Janeiro!"}
       </Typography>
-
+      <img
+        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/6e7e583e71fc74bb9245726d6fc24f0f.png"
+        width="280px"
+      />
       <Typography textAlign={"justify"}>
-        <br />
-        <br />
         {
           "Nascida do amor pela saúde, bem-estar e sabores autênticos, a Chá Vivo é uma das pioneiras na produção de Kombuchá do Brasil. Fazemos sempre questão de nos mantermos fiéis ao método ancestral e tradicional de produção do nosso kombucha."
         }
@@ -42,6 +41,12 @@ export default function SobreNos() {
         }
         <br />
         <br />
+      </Typography>
+      <img
+        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/1ad99e9834f1eb34fa751591ff483c79.png"
+        width="280px"
+      />
+      <Typography textAlign={"justify"}>
         {
           "Nossos processos de fermentação são conduzidos com habilidade e cuidado, assegurando que cada garrafa de Chá Vivo esteja repleta de probióticos benéficos e nutrientes essenciais. Além disso, nosso compromisso com a sustentabilidade ambiental nos impulsiona a adotar práticas ecológicas nas etapas de nossa produção."
         }
@@ -52,8 +57,20 @@ export default function SobreNos() {
         }
         <br />
         <br />
-        {"Kombuchá é Chá Vivo, Chá Vivo é saúde!"}
+      </Typography>
+      <Typography
+        textAlign={"center"}
+        sx={{
+          fontFamily: "Playfair Display",
+          fontWeight: "bold",
+          fontSize: "1.25rem",
+          fontStyle: "italic",
+          mt: 2,
+          mb: 5,
+        }}
+      >
+        Kombuchá é Chá Vivo, Chá Vivo é saúde!
       </Typography>
     </Box>
-  )
+  );
 }

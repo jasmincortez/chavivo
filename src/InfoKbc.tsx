@@ -38,6 +38,7 @@ export default function InfoKbc() {
           fontFamily: "Playfair Display",
           fontWeight: "bold",
           fontSize: "1.25rem",
+          fontStyle: "italic",
         }}
       >
         {

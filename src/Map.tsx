@@ -5,7 +5,7 @@ import { Box, Typography } from "@mui/material";
 export default function Map() {
   return (
     <Box>
-      <Typography variant="h2" sx={{ mt: 3, fontFamily: "Playfair Display" }}>
+      <Typography variant="h2" sx={{ fontFamily: "Playfair Display" }}>
         Onde encontrar?
       </Typography>
     </Box>

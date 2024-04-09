@@ -18,6 +18,7 @@ export default function SobreNos() {
         alignItems: "center",
       }}
     >
+
       <Carousel images={images} imageHeight={100} />
 
       <Typography

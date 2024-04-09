@@ -5,7 +5,7 @@ import ChaVivoLogo from "./ChaVivoLogo";
 
 export default function DesktopLayout() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, paddingTop: "5rem", paddingX: "3rem" }}>
       <Grid container spacing={0}>
         <Grid
           item
@@ -13,7 +13,6 @@ export default function DesktopLayout() {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mt: 6,
           }}
         >
           <Stack

@@ -11,7 +11,7 @@ import FaqItem from "./components/FaqItem";
 export default function Duvidas() {
   return (
     <Box>
-      <Typography variant="h2" sx={{ my: 3, fontFamily: "Playfair Display" }}>
+      <Typography variant="h2" sx={{ mb: 3, fontFamily: "Playfair Display" }}>
         Dúvidas
       </Typography>
 

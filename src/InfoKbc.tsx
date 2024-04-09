@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, List, ListItem, Stack, Typography } from "@mui/material"
 
 export default function InfoKbc() {
   return (
@@ -64,35 +64,45 @@ export default function InfoKbc() {
           "Além de ser uma alternativa saudável aos refrigerantes e outras bebidas açucaradas, kombuchá oferece diversos benefícios para a saúde:"
         }
         <br />
-        <ul>
-          <li>
-            {
-              'Probióticos: A fermentação produz probióticos benéficos para o sistema digestivo. Essas bactérias "do bem" auxiliam na saúde intestinal, melhoram a absorção de nutrientes e fortalecem o sistema imunológico.'
-            }
-          </li>
-          <li>
-            {
-              "Detoxificação: Kombuchá contém enzimas e ácidos orgânicos que ajudam na desintoxicação do corpo, contribuindo para eliminar toxinas e resíduos acumulados no organismo."
-            }
-          </li>
-          <li>
-            {
-              "Fonte de antioxidantes: O chá utilizado na produção do kombuchá é rico em antioxidantes que combatem os radicais livres, protegendo as células contra danos e envelhecimento precoce."
-            }
-          </li>
-          <li>
-            {
-              "Aumento da energia: Devido à presença de vitaminas do complexo B, kombuchá pode contribuir para aumentar os níveis de energia e melhorar o humor."
-            }
-          </li>
-          <li>
-            {
-              "Equilíbrio do pH: A combinação de ácidos orgânicos presente no kombuchá pode ajudar a equilibrar o pH do corpo, contribuindo para uma melhor saúde geral."
-            }
-          </li>
-        </ul>
       </Typography>
-      {/* {info like Sobre Nós */}
+      <List sx={{ listStyleType: "disc", pl: 2 }}>
+        <ListItem sx={{ display: "list-item" }}>
+          <Typography variant="body1" textAlign={"justify"}>
+            Probióticos: A fermentação produz probióticos benéficos para o
+            sistema digestivo. Essas bactérias "do bem" auxiliam na saúde
+            intestinal, melhoram a absorção de nutrientes e fortalecem o sistema
+            imunológico.
+          </Typography>
+        </ListItem>
+        <ListItem sx={{ display: "list-item" }}>
+          <Typography variant="body1" textAlign={"justify"}>
+            Detoxificação: Kombuchá contém enzimas e ácidos orgânicos que ajudam
+            na desintoxicação do corpo, contribuindo para eliminar toxinas e
+            resíduos acumulados no organismo.
+          </Typography>
+        </ListItem>
+        <ListItem sx={{ display: "list-item" }}>
+          <Typography variant="body1" textAlign={"justify"}>
+            Fonte de antioxidantes: O chá utilizado na produção do kombuchá é
+            rico em antioxidantes que combatem os radicais livres, protegendo as
+            células contra danos e envelhecimento precoce.
+          </Typography>
+        </ListItem>
+        <ListItem sx={{ display: "list-item" }}>
+          <Typography variant="body1" textAlign={"justify"}>
+            Aumento da energia: Devido à presença de vitaminas do complexo B,
+            kombuchá pode contribuir para aumentar os níveis de energia e
+            melhorar o humor.
+          </Typography>
+        </ListItem>
+        <ListItem sx={{ display: "list-item" }}>
+          <Typography variant="body1" textAlign={"justify"}>
+            Equilíbrio do pH: A combinação de ácidos orgânicos presente no
+            kombuchá pode ajudar a equilibrar o pH do corpo, contribuindo para
+            uma melhor saúde geral."
+          </Typography>
+        </ListItem>
+      </List>
     </Box>
-  );
+  )
 }

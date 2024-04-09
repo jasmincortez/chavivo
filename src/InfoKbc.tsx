@@ -2,14 +2,20 @@ import { Box, List, ListItem, Stack, Typography } from "@mui/material";
 
 export default function InfoKbc() {
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <Stack
         direction="row"
         justifyContent="center"
         alignItems="center"
         spacing={1}
-        width={"100%"}
-        sx={{ mb: 10 }}
+        width={"90%"}
+        sx={{ mb: 5 }}
       >
         <img
           width={"20%"}
@@ -37,7 +43,7 @@ export default function InfoKbc() {
         sx={{
           fontFamily: "Playfair Display",
           fontWeight: "bold",
-          fontSize: "1.25rem",
+          fontSize: "1.20rem",
           fontStyle: "italic",
         }}
       >
@@ -59,8 +65,13 @@ export default function InfoKbc() {
         {
           "Os principais ingredientes da kombuchá são o chá (preto, verde ou de ervas) e o açúcar, que servem como alimento para as bactérias e leveduras durante o processo de fermentação. Esses microorganismos transformam o açúcar em álcool e ácido acético, resultando em uma bebida levemente efervescente, com sabor agridoce e refrescante."
         }
-        <br />
-        <br />
+      </Typography>
+      <img
+        src="./FaqQIcon.svg"
+        width="60vw"
+        style={{ marginTop: 10, marginBottom: 5 }}
+      />
+      <Typography textAlign={"justify"}>
         {
           "Além de ser uma alternativa saudável aos refrigerantes e outras bebidas açucaradas, kombuchá oferece diversos benefícios para a saúde:"
         }

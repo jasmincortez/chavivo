@@ -1,4 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material"
+import Carousel from "./components/Carousel"
+
+const images = [
+  "https://picsum.photos/200/200",
+  "https://picsum.photos/200/200",
+  "https://picsum.photos/200/200",
+  "https://picsum.photos/200/200",
+  "https://picsum.photos/200/200",
+]
 
 export default function SobreNos() {
   return (
@@ -9,9 +18,7 @@ export default function SobreNos() {
         alignItems: "center",
       }}
     >
-      {/* Pictures of staff em carousel
-      Figure out design for text display
-      */}
+      <Carousel images={images} imageHeight={100} />
 
       <Typography
         textAlign={"center"}
@@ -72,5 +79,5 @@ export default function SobreNos() {
         Kombuchá é Chá Vivo, Chá Vivo é saúde!
       </Typography>
     </Box>
-  );
+  )
 }

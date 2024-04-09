@@ -1,9 +1,9 @@
-import Slider, { type Settings, type CustomArrowProps } from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import { Avatar, Box, IconButton } from "@mui/material"
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore"
-import NavigateNextIcon from "@mui/icons-material/NavigateNext"
+import Slider, { type Settings, type CustomArrowProps } from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Avatar, Box, IconButton } from "@mui/material";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 function NextArrow(props: CustomArrowProps) {
   return (
@@ -20,7 +20,7 @@ function NextArrow(props: CustomArrowProps) {
         <NavigateNextIcon />
       </IconButton>
     </Box>
-  )
+  );
 }
 
 function PreviousArrow(props: CustomArrowProps) {
@@ -37,12 +37,12 @@ function PreviousArrow(props: CustomArrowProps) {
         <NavigateBeforeIcon />
       </IconButton>
     </Box>
-  )
+  );
 }
 
 export interface CarouselProps {
-  images: string[]
-  imageHeight: number
+  images: string[];
+  imageHeight: number;
 }
 
 export default function Carouesl(props: CarouselProps) {
@@ -51,18 +51,18 @@ export default function Carouesl(props: CarouselProps) {
     infinite: true,
     // fade: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PreviousArrow />,
-  }
+  };
   return (
     // Root box helps the carousel figure out how wide its container is.
     // mb is essential to show the dots.
-    <Box sx={{ width: "calc(100% - 80px)", mb: 4 }}>
+    <Box sx={{ width: "calc(100% - 80px)", mb: 6 }}>
       <div className="slider-container">
         <Slider {...settings}>
-          {props.images.map(url => (
+          {props.images.map((url) => (
             <Box sx={{ px: 4, my: "auto" }}>
               <Avatar
                 src={url}
@@ -77,5 +77,5 @@ export default function Carouesl(props: CarouselProps) {
         </Slider>
       </div>
     </Box>
-  )
+  );
 }

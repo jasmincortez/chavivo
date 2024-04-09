@@ -1,13 +1,13 @@
-import { Box, Typography } from "@mui/material"
-import Carousel from "./components/Carousel"
+import { Box, Typography } from "@mui/material";
+import Carousel from "./components/Carousel";
 
 const images = [
-  "https://picsum.photos/200/200",
-  "https://picsum.photos/200/200",
-  "https://picsum.photos/200/200",
-  "https://picsum.photos/200/200",
-  "https://picsum.photos/200/200",
-]
+  "./ed_e_ja.jpg",
+  "./ed_e_ja.jpg",
+  "./ed_e_ja.jpg",
+  "./ed_e_ja.jpg",
+  "./ed_e_ja.jpg",
+];
 
 export default function SobreNos() {
   return (
@@ -18,8 +18,7 @@ export default function SobreNos() {
         alignItems: "center",
       }}
     >
-
-      <Carousel images={images} imageHeight={100} />
+      <Carousel images={images} imageHeight={190} />
 
       <Typography
         textAlign={"center"}
@@ -80,5 +79,5 @@ export default function SobreNos() {
         Kombuchá é Chá Vivo, Chá Vivo é saúde!
       </Typography>
     </Box>
-  )
+  );
 }

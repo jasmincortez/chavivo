@@ -1,10 +1,10 @@
-import Slider, { type Settings, type CustomArrowProps } from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import { Avatar, Box, IconButton } from "@mui/material"
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore"
-import NavigateNextIcon from "@mui/icons-material/NavigateNext"
-import { useEffect, useRef, useState } from "react"
+import Slider, { type Settings, type CustomArrowProps } from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Avatar, Box, IconButton } from "@mui/material";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { useEffect, useRef, useState } from "react";
 
 function NextArrow(props: CustomArrowProps) {
   return (
@@ -21,7 +21,7 @@ function NextArrow(props: CustomArrowProps) {
         <NavigateNextIcon />
       </IconButton>
     </Box>
-  )
+  );
 }
 
 function PreviousArrow(props: CustomArrowProps) {
@@ -38,26 +38,28 @@ function PreviousArrow(props: CustomArrowProps) {
         <NavigateBeforeIcon />
       </IconButton>
     </Box>
-  )
+  );
 }
 
 export interface CarouselProps {
-  images: string[]
-  slidesToShow: number
+  images: string[];
+  slidesToShow: number;
 }
 
 export default function Carouesl(props: CarouselProps) {
-  const container = useRef<HTMLDivElement>(null)
-  const [slideWidth, setSlideWidth] = useState(0)
+  const container = useRef<HTMLDivElement>(null);
+  const [slideWidth, setSlideWidth] = useState(0);
 
-  const slidePaddingX = 8 // I.e. 0.5rem on each side.
+  const slidePaddingX = 8; // I.e. 0.5rem on each side.
 
   useEffect(() => {
-    const containerWidth = container.current ? container.current.offsetWidth : 0
+    const containerWidth = container.current
+      ? container.current.offsetWidth
+      : 0;
     setSlideWidth(
       Math.floor(containerWidth / props.slidesToShow) - 2 * slidePaddingX
-    )
-  }, [container.current])
+    );
+  }, [container.current]);
 
   const settings: Settings = {
     dots: true,
@@ -68,7 +70,7 @@ export default function Carouesl(props: CarouselProps) {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PreviousArrow />,
-  }
+  };
   return (
     // Root box helps the carousel figure out how wide its container is.
     // -80px is to make space for the two arrow buttons.
@@ -85,6 +87,8 @@ export default function Carouesl(props: CarouselProps) {
                   width: slideWidth,
                   margin: "0 auto",
                   boxShadow: 2,
+                  filter: "grayScale(100%)",
+                  "&:hover": { filter: "none" },
                 }}
               />
             </Box>
@@ -92,5 +96,5 @@ export default function Carouesl(props: CarouselProps) {
         </Slider>
       </div>
     </Box>
-  )
+  );
 }

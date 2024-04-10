@@ -1,11 +1,17 @@
-import { Outlet } from "react-router-dom";
-import { routes, isCurrentPath, RouterLink } from "@/Router";
-import { Box, Container, Grid, Stack } from "@mui/material";
-import ChaVivoLogo from "./ChaVivoLogo";
+import { Outlet } from "react-router-dom"
+import { routes, isCurrentPath, RouterLink } from "@/Router"
+import { Box, Container, Grid, Stack } from "@mui/material"
+import ChaVivoLogo from "./ChaVivoLogo"
 
 export default function DesktopLayout() {
   return (
-    <Box sx={{ flexGrow: 1, paddingTop: "5rem", paddingX: "3rem" }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        pt: isCurrentPath("/home") ? 0 : "5rem",
+        px: "3rem",
+      }}
+    >
       <Grid container spacing={0}>
         <Grid
           item
@@ -19,11 +25,12 @@ export default function DesktopLayout() {
             component="nav"
             sx={{
               position: "fixed",
+              pt: isCurrentPath("/home") ? "5rem" : 0,
             }}
           >
             {routes
-              .filter((route) => route.render)
-              .map((route) => (
+              .filter(route => route.render)
+              .map(route => (
                 <RouterLink
                   to={route.to}
                   label={route.label}
@@ -52,5 +59,5 @@ export default function DesktopLayout() {
         </Grid>
       </Grid>
     </Box>
-  );
+  )
 }

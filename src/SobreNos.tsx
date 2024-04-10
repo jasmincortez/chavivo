@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import Carousel from "./components/Carousel";
+import { Box, Typography } from "@mui/material"
+import Carousel from "./components/Carousel"
 
 const images = [
   "./ed_e_ja.jpg",
@@ -7,7 +7,7 @@ const images = [
   "./ed_e_ja.jpg",
   "./ed_e_ja.jpg",
   "./ed_e_ja.jpg",
-];
+]
 
 export default function SobreNos() {
   return (
@@ -18,7 +18,7 @@ export default function SobreNos() {
         alignItems: "center",
       }}
     >
-      <Carousel images={images} imageHeight={190} />
+      <Carousel images={images} slidesToShow={2} />
 
       <Typography
         textAlign={"center"}
@@ -79,5 +79,5 @@ export default function SobreNos() {
         Kombuchá é Chá Vivo, Chá Vivo é saúde!
       </Typography>
     </Box>
-  );
+  )
 }

@@ -1,13 +1,14 @@
-import { Box, Typography } from "@mui/material"
-import Carousel from "./components/Carousel"
+import { Box, Typography } from "@mui/material";
+import Carousel from "./components/Carousel";
 
 const images = [
-  "./ed_e_ja.jpg",
-  "./ed_e_ja.jpg",
-  "./ed_e_ja.jpg",
-  "./ed_e_ja.jpg",
-  "./ed_e_ja.jpg",
-]
+  "./people/avatar_6.jpg",
+  "./people/avatar_1.jpg",
+  "./people/avatar_2.jpg",
+  "./people/avatar_4.jpg",
+  "./people/avatar_7.jpg",
+  "./people/avatar_3.jpg",
+];
 
 export default function SobreNos() {
   return (
@@ -79,5 +80,5 @@ export default function SobreNos() {
         Kombuchá é Chá Vivo, Chá Vivo é saúde!
       </Typography>
     </Box>
-  )
+  );
 }

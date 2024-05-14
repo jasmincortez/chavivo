@@ -38,7 +38,6 @@ export default function App() {
     >
       <CssBaseline />
       <Layout />
-      <WhatsAppBtn />
       <StickyFooter />
     </Box>
   );

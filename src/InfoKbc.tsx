@@ -9,7 +9,7 @@ export default function InfoKbc() {
         alignItems: "center",
       }}
     >
-      <Stack
+      {/* <Stack
         direction="row"
         justifyContent="center"
         alignItems="center"
@@ -37,7 +37,7 @@ export default function InfoKbc() {
           width={"20%"}
           src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/bfff9535688797a60901318524993856.png"
         />
-      </Stack>
+      </Stack> */}
       <Typography
         textAlign={"center"}
         sx={{

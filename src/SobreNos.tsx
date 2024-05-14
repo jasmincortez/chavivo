@@ -40,6 +40,7 @@ export default function SobreNos() {
         width="280px"
       />
       <Typography textAlign={"justify"}>
+        <br />
         {
           "Nascida do amor pela saúde, bem-estar e sabores autênticos, a Chá Vivo é uma das pioneiras na produção de Kombuchá do Brasil. Fazemos sempre questão de nos mantermos fiéis ao método ancestral e tradicional de produção do nosso kombucha."
         }
@@ -48,12 +49,11 @@ export default function SobreNos() {
         {
           "Aqui na Chá Vivo, acreditamos que cada gole de kombuchá deve ser uma jornada de prazer para o paladar e um impulso revigorante para o corpo. Por isso, dedicamos nossos esforços para criar os melhores sabores, utilizando ingredientes orgânicos, ervas frescas e frutas selecionadas cuidadosamente. Com zero adição de insumos artificiais ou ultraprocessados!"
         }
-        <br />
-        <br />
       </Typography>
       <img
-        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/1ad99e9834f1eb34fa751591ff483c79.png"
-        width="280px"
+        src="./FaqQIcon.svg"
+        width="60vw"
+        style={{ marginTop: 10, marginBottom: 5 }}
       />
       <Typography textAlign={"justify"}>
         {

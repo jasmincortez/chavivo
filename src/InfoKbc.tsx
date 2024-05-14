@@ -16,6 +16,7 @@ export default function InfoKbc() {
           fontWeight: "bold",
           fontSize: "1.20rem",
           fontStyle: "italic",
+          mb: 3,
         }}
       >
         {
@@ -24,9 +25,11 @@ export default function InfoKbc() {
         <br />
         {"Kombucha é Chá Vivo. Chá Vivo é saúde."}
       </Typography>
-
+      <img
+        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/1ad99e9834f1eb34fa751591ff483c79.png"
+        width="280px"
+      />
       <Typography textAlign={"justify"}>
-        <br />
         <br />
         {
           "Kombuchá é uma bebida fermentada milenar originada na China, mas que se tornou popular em todo o mundo por seus benefícios à saúde e seu sabor único. Essa bebida é feita a partir da fermentação de chá adoçado por uma colônia simbiótica de bactérias e leveduras, também conhecida como SCOBY (symbiotic culture of bacteria and yeasts)."

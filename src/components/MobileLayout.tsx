@@ -37,8 +37,10 @@ export default function MobileLayout() {
         textAlign: "center",
         backgroundColor: theme.palette.primary.main,
         height: "100dvh",
+        paddingTop: 3,
       }}
     >
+      <ChaVivoLogo height={`calc(${mobileAppBarHeight} - 2rem)`} />
       <List>
         {routes
           .filter((route) => route.render)

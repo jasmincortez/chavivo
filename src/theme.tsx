@@ -36,7 +36,7 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          fontFamily: "Poppins",
+          fontFamily: "Playfair Display",
         },
       },
     },

@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { Outlet } from "react-router-dom"
-import { routes, ListRouterLink, isCurrentPath } from "@/Router"
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { routes, ListRouterLink, isCurrentPath } from "@/Router";
 import {
   AppBar,
   Box,
@@ -12,23 +12,23 @@ import {
   Slide,
   Toolbar,
   useScrollTrigger,
-} from "@mui/material"
-import MenuIcon from "@mui/icons-material/Menu"
-import theme from "@/theme"
-import ChaVivoLogo from "./ChaVivoLogo"
-import InstagramIcon from "@mui/icons-material/Instagram"
-import { WhatsApp } from "@mui/icons-material"
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import theme from "@/theme";
+import ChaVivoLogo from "./ChaVivoLogo";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import { WhatsApp } from "@mui/icons-material";
 
-const drawerWidth = 240
+const drawerWidth = 240;
 
 export default function MobileLayout() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setIsDrawerOpen(prevState => !prevState)
-  }
+    setIsDrawerOpen((prevState) => !prevState);
+  };
 
-  const mobileAppBarHeight = "100px"
+  const mobileAppBarHeight = "100px";
 
   const drawerContent = (
     <Box
@@ -41,8 +41,8 @@ export default function MobileLayout() {
     >
       <List>
         {routes
-          .filter(route => route.render)
-          .map(route => (
+          .filter((route) => route.render)
+          .map((route) => (
             <ListRouterLink
               to={route.to}
               label={route.label}
@@ -67,25 +67,25 @@ export default function MobileLayout() {
         <InstagramIcon />
       </Button>
     </Box>
-  )
+  );
 
   const appBarBg = {
     backgroundColor: "transparent",
     // backdropFilter: "blur(5px)",
-  }
+  };
 
   interface HideOnScrollProps {
-    children: React.ReactElement
+    children: React.ReactElement;
   }
 
   function HideOnScroll(props: HideOnScrollProps) {
-    const trigger = useScrollTrigger()
+    const trigger = useScrollTrigger();
 
     return (
       <Slide appear={false} direction="down" in={!trigger}>
         {props.children}
       </Slide>
-    )
+    );
   }
   return (
     <>
@@ -114,8 +114,6 @@ export default function MobileLayout() {
             >
               <MenuIcon />
             </IconButton>
-
-            <ChaVivoLogo height={`calc(${mobileAppBarHeight} - 2rem)`} />
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -152,5 +150,5 @@ export default function MobileLayout() {
         <Outlet />
       </Container>
     </>
-  )
+  );
 }

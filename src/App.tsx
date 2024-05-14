@@ -1,7 +1,6 @@
 import StickyFooter from "./StickyFooter";
 import { isCurrentPath } from "./Router";
 import { Box, CssBaseline } from "@mui/material";
-import WhatsAppBtn from "./components/WhatsAppBtn";
 import MobileLayout from "./components/MobileLayout";
 import DesktopLayout from "./components/DesktopLayout";
 import { useTheme } from "@mui/material/styles";

@@ -40,7 +40,11 @@ export default function MobileLayout() {
         paddingTop: 3,
       }}
     >
-      <ChaVivoLogo height={`calc(${mobileAppBarHeight} - 2rem)`} />
+      <Container
+        sx={{ width: "100%", display: "flex", justifyContent: "center" }}
+      >
+        <ChaVivoLogo height={`calc(${mobileAppBarHeight} - 2rem)`} />
+      </Container>
       <List>
         {routes
           .filter((route) => route.render)

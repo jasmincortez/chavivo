@@ -9,35 +9,6 @@ export default function InfoKbc() {
         alignItems: "center",
       }}
     >
-      {/* <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={1}
-        width={"90%"}
-        sx={{ mb: 5 }}
-      >
-        <img
-          width={"20%"}
-          src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/d855945ee727b83d174f140712c16373.png"
-        />
-        <img
-          width={"20%"}
-          src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/3f22fbef9004193cdfa15843efea1934.png"
-        />
-        <img
-          width={"20%"}
-          src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/574354cdd79e6ad37368a82ceef0444f.png"
-        />
-        <img
-          width={"20%"}
-          src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/e7ff5ea636b7501a673883eeb39c69c0.png"
-        />
-        <img
-          width={"20%"}
-          src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/bfff9535688797a60901318524993856.png"
-        />
-      </Stack> */}
       <Typography
         textAlign={"center"}
         sx={{

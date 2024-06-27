@@ -11,7 +11,7 @@ export default function Home() {
         width: "50vw",
       }}
     >
-      <img src="./splash_chavivo.gif" width="100%" style={{}} />
+      <img src="./splash_chavivo.gif" width="100%" />
     </Box>
   );
 }

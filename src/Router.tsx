@@ -3,27 +3,28 @@ import {
   createBrowserRouter,
   Navigate,
   useLocation,
-} from "react-router-dom"
-import NotFound from "./NotFound"
-import Home from "./Home"
-import SobreNos from "./SobreNos"
-import Sabores from "./Sabores"
-import OndeEncontrar from "./OndeEncontrar"
-import Duvidas from "./Duvidas"
-import InfoKbc from "./InfoKbc"
-import App from "./App"
-import theme from "./theme"
-import { Button, ListItem } from "@mui/material"
+} from "react-router-dom";
+import NotFound from "./NotFound";
+import Home from "./Home";
+import SobreNos from "./SobreNos";
+import Sabores from "./Sabores";
+import OndeEncontrar from "./OndeEncontrar";
+import Duvidas from "./Duvidas";
+import InfoKbc from "./InfoKbc";
+import App from "./App";
+import theme from "./theme";
+import { Button, ListItem } from "@mui/material";
+import Galeria from "./components/Galeria";
 
 export interface RouteDefinition {
-  label: string
-  aria: string
-  to: string
-  element: JSX.Element
-  render: boolean
+  label: string;
+  aria: string;
+  to: string;
+  element: JSX.Element;
+  render: boolean;
 }
 
-export const BASE_URL = "/chavivo/"
+export const BASE_URL = "/chavivo/";
 
 export const routes: RouteDefinition[] = [
   {
@@ -63,18 +64,26 @@ export const routes: RouteDefinition[] = [
   },
 
   {
+    label: "galeria",
+    aria: "Navigate to galeria",
+    to: "galeria",
+    element: <Galeria />,
+    render: true,
+  },
+
+  {
     label: "dúvidas",
     aria: "Navigate to duvidas",
     to: "duvidas",
     element: <Duvidas />,
     render: true,
   },
-]
+];
 
 export const isCurrentPath = (path: string) => {
-  const location = useLocation()
-  return location.pathname === path
-}
+  const location = useLocation();
+  return location.pathname === path;
+};
 
 export const router = createBrowserRouter(
   [
@@ -87,11 +96,11 @@ export const router = createBrowserRouter(
           index: true,
           element: <Navigate to="/home" replace />,
         },
-        ...routes.map(route => {
+        ...routes.map((route) => {
           return {
             path: route.to,
             element: route.element,
-          }
+          };
         }),
       ],
     },
@@ -99,12 +108,12 @@ export const router = createBrowserRouter(
   {
     basename: BASE_URL,
   }
-)
+);
 
 export type RouterLinkProps = {
-  to: string
-  label: string
-}
+  to: string;
+  label: string;
+};
 
 export function RouterLink(props: RouterLinkProps) {
   return (
@@ -120,7 +129,7 @@ export function RouterLink(props: RouterLinkProps) {
         {props.label}
       </Button>
     </Link>
-  )
+  );
 }
 
 export function ListRouterLink(props: RouterLinkProps) {
@@ -148,5 +157,5 @@ export function ListRouterLink(props: RouterLinkProps) {
         </Button>
       </Link>
     </ListItem>
-  )
+  );
 }

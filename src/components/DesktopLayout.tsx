@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom"
-import { routes, isCurrentPath, RouterLink } from "@/Router"
-import { Box, Container, Grid, Stack } from "@mui/material"
-import ChaVivoLogo from "./ChaVivoLogo"
+import { Outlet } from "react-router-dom";
+import { routes, isCurrentPath, RouterLink } from "@/Router";
+import { Box, Container, Grid, Stack } from "@mui/material";
+import ChaVivoLogo from "./ChaVivoLogo";
 
 export default function DesktopLayout() {
   return (
@@ -29,8 +29,8 @@ export default function DesktopLayout() {
             }}
           >
             {routes
-              .filter(route => route.render)
-              .map(route => (
+              .filter((route) => route.render)
+              .map((route) => (
                 <RouterLink
                   to={route.to}
                   label={route.label}
@@ -55,9 +55,9 @@ export default function DesktopLayout() {
           </Container>
         </Grid>
         <Grid item xs={3} sx={{ display: "flex", justifyContent: "center" }}>
-          <ChaVivoLogo isDesktop />
+          {/* <ChaVivoLogo isDesktop /> */}
         </Grid>
       </Grid>
     </Box>
-  )
+  );
 }

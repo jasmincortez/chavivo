@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
@@ -11,10 +11,7 @@ export default function Home() {
         width: "50vw",
       }}
     >
-      <img
-        src="https://www.chavivo.com.br/site/wp-content/themes/chavivo/assets/img/logo-cha-vivo.png"
-        width="100%"
-      />
+      <img src="./splash_chavivo.gif" width="100%" style={{}} />
     </Box>
-  )
+  );
 }

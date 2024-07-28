@@ -13,8 +13,10 @@ import Duvidas from "./Duvidas";
 import InfoKbc from "./InfoKbc";
 import App from "./App";
 import theme from "./theme";
-import { Button, ListItem } from "@mui/material";
+import { Button, ListItem, Stack } from "@mui/material";
 import Galeria from "./components/Galeria";
+import Beijaflor from "/beijaflor.png";
+import { useState } from "react";
 
 export interface RouteDefinition {
   label: string;
@@ -116,19 +118,30 @@ export type RouterLinkProps = {
 };
 
 export function RouterLink(props: RouterLinkProps) {
+  const [isHover, setIsHover] = useState(false);
+
   return (
-    <Link to={props.to}>
-      <Button
-        sx={{
-          color: isCurrentPath(`/${props.to}`)
-            ? theme.palette.highlight.main
-            : theme.palette.font.main,
-          fontSize: "1rem",
-        }}
-      >
-        {props.label}
-      </Button>
-    </Link>
+    <Stack
+      direction={"row"}
+      alignContent={"center"}
+      spacing={1}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <Link to={props.to}>
+        <Button
+          sx={{
+            color: isCurrentPath(`/${props.to}`)
+              ? theme.palette.highlight.main
+              : theme.palette.font.main,
+            fontSize: "1rem",
+          }}
+        >
+          {props.label}
+        </Button>
+      </Link>
+      <img src={Beijaflor} height={50} style={{ opacity: isHover ? 1 : 0 }} />
+    </Stack>
   );
 }
 

@@ -28,9 +28,8 @@ export default function ChaVivoLogo(props: ChaVivoLogoProps) {
     >
       <Link to="home">
         <img
-          src="https://www.chavivo.com.br/site/wp-content/themes/chavivo/assets/img/logo-cha-vivo.png"
+          src="Beijaflor.png"
           style={{
-            visibility: isCurrentPath("/home") ? "hidden" : "visible",
             height: props.height || "auto",
             width: props.isDesktop ? getLogoWidth() : "auto",
           }}

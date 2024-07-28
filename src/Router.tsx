@@ -15,7 +15,7 @@ import App from "./App";
 import theme from "./theme";
 import { Button, ListItem, Stack } from "@mui/material";
 import Galeria from "./components/Galeria";
-import Beijaflor from "./Beijaflor.png";
+import Beijaflor from "/beijaflor.png";
 import { useState } from "react";
 
 export interface RouteDefinition {

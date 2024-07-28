@@ -28,7 +28,7 @@ export default function ChaVivoLogo(props: ChaVivoLogoProps) {
     >
       <Link to="home">
         <img
-          src="Beijaflor.png"
+          src="beijaflor.png"
           style={{
             height: props.height || "auto",
             width: props.isDesktop ? getLogoWidth() : "auto",

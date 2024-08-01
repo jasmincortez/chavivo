@@ -70,7 +70,7 @@ export default function CaroueslSabores(props: CarouselProps) {
   }, [container.current]);
 
   const settings: Settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     // fade: true,
     speed: 500,
@@ -83,11 +83,14 @@ export default function CaroueslSabores(props: CarouselProps) {
     // Root box helps the carousel figure out how wide its container is.
     // -80px is to make space for the two arrow buttons.
     // mb is essential to show the dots.
-    <Box ref={container} sx={{ width: "calc(100% - 80px)", mb: 6 }}>
+    <Box
+      ref={container}
+      sx={{ width: "93%", height: "80vh", mb: 6, mx: " auto" }}
+    >
       <div className="slider-container">
         <Slider {...settings}>
           {props.images.map((url, i) => (
-            <Box sx={{ my: "auto" }} key={i}>
+            <Box key={i}>
               <img
                 src={url}
                 style={{

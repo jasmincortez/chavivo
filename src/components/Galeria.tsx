@@ -1,70 +1,81 @@
+import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import Typography from "@mui/material/Typography";
 
 export default function Galeria() {
+  // TODO: Add function to make img bigger on hover or click
+
   return (
-    <ImageList sx={{ width: "100%" }} variant="woven" cols={3} gap={8}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=161&fit=crop&auto=format`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+    <Box>
+      <Typography variant="h2" sx={{ fontFamily: "Playfair Display" }}>
+        Galeria
+      </Typography>
+      <ImageList variant="masonry" cols={3} gap={8}>
+        {itemData.map((item) => (
+          <ImageListItem key={item.img}>
+            <img
+              srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
+              src={`${item.img}?w=161&fit=crop&auto=format`}
+              alt={item.title}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </Box>
   );
 }
 
 const itemData = [
   {
-    img: "https://images.unsplash.com/photo-1549388604-817d15aa0110",
-    title: "Bed",
+    img: "./insta/drinks.jpg",
+    title: "Drinks",
   },
   {
-    img: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3",
-    title: "Kitchen",
+    img: "./insta/uta.jpg",
+    title: "Uta",
   },
   {
-    img: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
-    title: "Sink",
+    img: "./insta/angra.jpg",
+    title: "Angra",
   },
   {
-    img: "https://images.unsplash.com/photo-1525097487452-6278ff080c31",
-    title: "Books",
+    img: "./insta/Lele.jpg",
+    title: "Lele",
   },
   {
-    img: "https://images.unsplash.com/photo-1574180045827-681f8a1a9622",
-    title: "Chairs",
+    img: "./insta/jaeflor.jpg",
+    title: "Ja e Flor",
   },
   {
-    img: "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62",
-    title: "Candle",
+    img: "./insta/botls.jpg",
+    title: "Bottles",
   },
   {
-    img: "https://images.unsplash.com/photo-1530731141654-5993c3016c77",
-    title: "Laptop",
+    img: "./insta/loveu.jpg",
+    title: "Lov U",
   },
   {
-    img: "https://images.unsplash.com/photo-1481277542470-605612bd2d61",
-    title: "Doors",
+    img: "./insta/skate.jpg",
+    title: "Skate",
   },
   {
-    img: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7",
-    title: "Coffee",
+    img: "./insta/cortez.jpg",
+    title: "Cortez",
   },
   {
-    img: "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee",
-    title: "Storage",
+    img: "./insta/crab.jpg",
+    title: "Crab",
   },
+
   {
-    img: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
-    title: "Coffee table",
+    img: "./insta/tasting.jpg",
+    title: "Tasting",
   },
+
   {
-    img: "https://images.unsplash.com/photo-1588436706487-9d55d73a39e3",
-    title: "Blinds",
+    img: "./insta/mari.jpg",
+    title: "Mari",
   },
 ];

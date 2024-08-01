@@ -2,8 +2,17 @@ import { Outlet } from "react-router-dom";
 import { routes, isCurrentPath, RouterLink } from "@/Router";
 import { Box, Container, Grid, Stack } from "@mui/material";
 import ChaVivoLogo from "./ChaVivoLogo";
+import useFlavour, { getFlavourBgCss } from "@/hooks/useFlavour";
+import { useEffect, useState } from "react";
 
 export default function DesktopLayout() {
+  const { flavour, setFlavour } = useFlavour();
+  const [flavourCss, setFlavourCss] = useState(getFlavourBgCss(flavour));
+
+  useEffect(() => {
+    setFlavourCss(getFlavourBgCss(flavour));
+  }, [flavour]);
+
   return (
     <Box
       sx={{
@@ -41,7 +50,7 @@ export default function DesktopLayout() {
         </Grid>
         <Grid item xs={6}>
           <Container
-            maxWidth="sm"
+            maxWidth="md"
             component="main"
             sx={{
               minHeight: "100dvh",

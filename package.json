@@ -14,7 +14,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@types/react-slick": "^0.23.13",
-    "@vis.gl/react-google-maps": "^0.9.0",
+    "@vis.gl/react-google-maps": "^1.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "latest",

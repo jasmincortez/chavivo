@@ -10,7 +10,7 @@ export default function OndeEncontrar() {
         Onde encontrar?
       </Typography>
       <APIProvider
-        apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+        apiKey="AIzaSyAwms3txiyHM6ZcWdebVJCerR7LtMm8hDM"
         language="pt-BR"
         region="BR"
       >

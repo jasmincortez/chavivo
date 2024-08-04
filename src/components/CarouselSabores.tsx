@@ -5,6 +5,9 @@ import { Avatar, Box, IconButton } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useEffect, useRef, useState } from "react";
+import { useAppDispatch } from "@/store/hooks";
+import { setFlavour } from "@/features/flavours/flavourSlice";
+import { Flavour } from "@/Sabores";
 
 function NextArrow(props: CustomArrowProps) {
   return (
@@ -58,6 +61,8 @@ export default function CaroueslSabores(props: CarouselProps) {
   const container = useRef<HTMLDivElement>(null);
   const [slideWidth, setSlideWidth] = useState(0);
 
+  const dispatch = useAppDispatch();
+
   const slidePaddingX = 8; // I.e. 0.5rem on each side.
 
   useEffect(() => {
@@ -78,6 +83,28 @@ export default function CaroueslSabores(props: CarouselProps) {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PreviousArrow />,
+    beforeChange: (oldIndex, newIndex) => {
+      console.log("BEFORE CHANGE", newIndex);
+      switch (newIndex) {
+        case 0:
+          dispatch(setFlavour(Flavour.PASSIONFRUIT));
+          break;
+        case 1:
+          dispatch(setFlavour(Flavour.LAVENDER));
+          break;
+        case 1:
+          dispatch(setFlavour(Flavour.LEMON_AND_GINGER));
+          break;
+        case 1:
+          dispatch(setFlavour(Flavour.HIBISCUS));
+          break;
+        case 1:
+          dispatch(setFlavour(Flavour.JUN));
+          break;
+        default:
+          return;
+      }
+    },
   };
   return (
     // Root box helps the carousel figure out how wide its container is.

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Flavour } from "@/Sabores";
 
 export const getFlavourBgCss = (flavour: Flavour) => {

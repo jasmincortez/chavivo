@@ -51,7 +51,7 @@ export const routes: RouteDefinition[] = [
     render: true,
   },
   {
-    label: "onde encontrar?",
+    label: "onde encontrar",
     aria: "Navigate to map",
     to: "onde-encontrar",
     element: <OndeEncontrar />,

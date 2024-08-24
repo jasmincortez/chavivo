@@ -1,7 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
 import CarouselSabores from "./components/CarouselSabores";
 import { useAppSelector } from "./store/hooks";
-import { selectFlavour } from "./features/flavours/flavourSlice";
+import {
+  getDescription,
+  selectFlavour,
+} from "./features/flavours/flavourSlice";
 
 {
   /* Bkgnd color split, bottle + info in carousel  */
@@ -37,9 +40,7 @@ export default function Sabores() {
             mb: 5,
           }}
         >
-          Feito com Kombuchá Base, tem a acidez e o gostinho tropical
-          característicos do Maracujá, um ligeiro dulçor e frizância. Encanta
-          pela sua elegância e sutileza.
+          {getDescription(flavour)}
         </Typography>
       </Stack>
     </Box>

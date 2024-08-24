@@ -98,7 +98,8 @@ export default function CaroueslSabores() {
         <Box display="flex" justifyContent="center">
           <img
             src={bottleImages[flavour]}
-            height={Math.floor(window.innerHeight / 1.8)}
+            height={Math.floor(window.innerHeight / 1.15)}
+            // TODO add mobile condition
           />
         </Box>
       </Grid>

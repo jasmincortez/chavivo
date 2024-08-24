@@ -17,7 +17,7 @@ export default function DesktopLayout() {
     <Box
       sx={{
         flexGrow: 1,
-        pt: isCurrentPath("/home") ? 0 : "5rem",
+        pt: isCurrentPath("/home") || isCurrentPath("/sabores") ? 0 : "5rem",
         px: "3rem",
       }}
     >
@@ -34,7 +34,10 @@ export default function DesktopLayout() {
             component="nav"
             sx={{
               position: "fixed",
-              pt: isCurrentPath("/home") ? "5rem" : 0,
+              pt:
+                isCurrentPath("/home") || isCurrentPath("/sabores")
+                  ? "5rem"
+                  : 0,
             }}
           >
             {routes
@@ -55,9 +58,10 @@ export default function DesktopLayout() {
             sx={{
               minHeight: "100dvh",
               borderRadius: "1rem",
-              backgroundColor: isCurrentPath("/home")
-                ? "transparent"
-                : "default",
+              backgroundColor:
+                isCurrentPath("/home") || isCurrentPath("/sabores")
+                  ? "transparent"
+                  : "default",
             }}
           >
             <Outlet />

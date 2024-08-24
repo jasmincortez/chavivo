@@ -1,31 +1,19 @@
 import { Box, Stack, Typography } from "@mui/material";
 import CarouselSabores from "./components/CarouselSabores";
+import { useAppSelector } from "./store/hooks";
+import { selectFlavour } from "./features/flavours/flavourSlice";
 
 {
   /* Bkgnd color split, bottle + info in carousel  */
 }
 
-const images = [
-  "./maracuja1.png",
-  "./lavanda1.png",
-  "./limaoegengibre1.png",
-  "./morango1.png",
-  "./junmel1.png",
-];
-
-export enum Flavour {
-  PASSIONFRUIT = "Maracujá",
-  LAVENDER = "Lavanda",
-  LEMON_AND_GINGER = "Limão com Gengibre",
-  HIBISCUS = "Hibisco com Morango",
-  JUN = "Jun",
-}
-
 export default function Sabores() {
+  const flavour = useAppSelector(selectFlavour);
+
   return (
     <Box>
-      <CarouselSabores images={images} slidesToShow={1} />
-      <Stack sx={{ width: "20vw" }}>
+      <CarouselSabores />
+      <Stack>
         <Typography
           sx={{
             fontFamily: "Playfair Display",
@@ -35,7 +23,7 @@ export default function Sabores() {
             mt: 2,
           }}
         >
-          maracujá
+          {flavour}
         </Typography>
         <Typography
           textAlign={"justify"}

@@ -1,135 +1,110 @@
-import Slider, { type Settings, type CustomArrowProps } from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Avatar, Box, IconButton } from "@mui/material";
+import { Box, Grid, IconButton } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useEffect, useRef, useState } from "react";
-import { useAppDispatch } from "@/store/hooks";
-import { setFlavour } from "@/features/flavours/flavourSlice";
-import { Flavour } from "@/Sabores";
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import {
+  selectFlavour,
+  setFlavour,
+  Flavour,
+  bottleImages,
+  getFlavourIndex,
+} from "@/features/flavours/flavourSlice";
+import { useSwipeable } from "react-swipeable";
 
-function NextArrow(props: CustomArrowProps) {
-  return (
-    <Box
-      sx={{
-        position: "absolute",
-        top: "50%",
-        right: "0",
-        transform: "translate(100%, -50%)",
-        zIndex: 99,
-      }}
-    >
-      <IconButton
-        aria-label="next"
-        onClick={props.onClick}
-        sx={{ color: "white" }}
-      >
-        <NavigateNextIcon style={{ fontSize: 60 }} />
-      </IconButton>
-    </Box>
-  );
-}
+export default function CaroueslSabores() {
+  const flavourState = useAppSelector(selectFlavour);
+  const flavour = flavourState || Flavour.HIBISCUS;
+  const [slideIndex, setSlideIndex] = useState(getFlavourIndex(flavour));
+  const imageCount = Object.keys(bottleImages).length;
 
-function PreviousArrow(props: CustomArrowProps) {
-  return (
-    <Box
-      sx={{
-        position: "absolute",
-        top: "50%",
-        transform: "translate(-100%, -50%)",
-        zIndex: 99,
-      }}
-    >
-      <IconButton
-        aria-label="prev"
-        onClick={props.onClick}
-        sx={{ color: "white" }}
-      >
-        <NavigateBeforeIcon style={{ fontSize: 60 }} />
-      </IconButton>
-    </Box>
-  );
-}
+  const handlers = useSwipeable({
+    onSwipedLeft: (eventData) => onClick("next"),
+    onSwipedRight: (eventData) => onClick("previous"),
+    preventScrollOnSwipe: true,
+  });
 
-export interface CarouselProps {
-  images: string[];
-  slidesToShow: number;
-}
+  const NextArrow = () => {
+    return (
+      <Box>
+        <IconButton
+          aria-label="next"
+          onClick={() => onClick("next")}
+          sx={{ color: "white", m: 0, p: 0 }}
+        >
+          <NavigateNextIcon sx={{ fontSize: 40 }} />
+        </IconButton>
+      </Box>
+    );
+  };
 
-export default function CaroueslSabores(props: CarouselProps) {
-  const container = useRef<HTMLDivElement>(null);
-  const [slideWidth, setSlideWidth] = useState(0);
+  const PreviousArrow = () => {
+    return (
+      <Box>
+        <IconButton
+          aria-label="prev"
+          onClick={() => onClick("previous")}
+          sx={{ color: "white", m: 0, p: 0 }}
+        >
+          <NavigateBeforeIcon sx={{ fontSize: 40 }} />
+        </IconButton>
+      </Box>
+    );
+  };
 
   const dispatch = useAppDispatch();
 
-  const slidePaddingX = 8; // I.e. 0.5rem on each side.
-
-  useEffect(() => {
-    const containerWidth = container.current
-      ? container.current.offsetWidth
-      : 0;
-    setSlideWidth(
-      Math.floor(containerWidth / props.slidesToShow) - 2 * slidePaddingX
-    );
-  }, [container.current]);
-
-  const settings: Settings = {
-    dots: false,
-    infinite: true,
-    // fade: true,
-    speed: 500,
-    slidesToShow: props.slidesToShow,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PreviousArrow />,
-    beforeChange: (oldIndex, newIndex) => {
-      console.log("BEFORE CHANGE", newIndex);
-      switch (newIndex) {
-        case 0:
-          dispatch(setFlavour(Flavour.PASSIONFRUIT));
-          break;
-        case 1:
-          dispatch(setFlavour(Flavour.LAVENDER));
-          break;
-        case 1:
-          dispatch(setFlavour(Flavour.LEMON_AND_GINGER));
-          break;
-        case 1:
-          dispatch(setFlavour(Flavour.HIBISCUS));
-          break;
-        case 1:
-          dispatch(setFlavour(Flavour.JUN));
-          break;
-        default:
-          return;
-      }
-    },
+  const onClick = (type: "next" | "previous") => {
+    if (type === "next") {
+      const newIndex = slideIndex < imageCount - 1 ? slideIndex + 1 : 0;
+      setSlideIndex(newIndex);
+      handleChangeIndex(newIndex);
+    } else {
+      const newIndex = slideIndex > 0 ? slideIndex - 1 : imageCount - 1;
+      setSlideIndex(newIndex);
+      handleChangeIndex(newIndex);
+    }
   };
+
+  const handleChangeIndex = (newIndex: number) => {
+    switch (newIndex) {
+      case 0:
+        dispatch(setFlavour(Flavour.PASSIONFRUIT));
+        break;
+      case 1:
+        dispatch(setFlavour(Flavour.LAVENDER));
+        break;
+      case 2:
+        dispatch(setFlavour(Flavour.LEMON_AND_GINGER));
+        break;
+      case 3:
+        dispatch(setFlavour(Flavour.HIBISCUS));
+        break;
+      case 4:
+        dispatch(setFlavour(Flavour.JUN));
+        break;
+      default:
+        return;
+    }
+  };
+
   return (
-    // Root box helps the carousel figure out how wide its container is.
-    // -80px is to make space for the two arrow buttons.
-    // mb is essential to show the dots.
-    <Box
-      ref={container}
-      sx={{ width: "93%", height: "80vh", mb: 6, mx: " auto" }}
-    >
-      <div className="slider-container">
-        <Slider {...settings}>
-          {props.images.map((url, i) => (
-            <Box key={i}>
-              <img
-                src={url}
-                style={{
-                  width: slideWidth,
-                  margin: "0 auto",
-                  transition: "all 400ms ease-in-out",
-                }}
-              />
-            </Box>
-          ))}
-        </Slider>
-      </div>
-    </Box>
+    <Grid container alignItems="center" pt={5} {...handlers}>
+      {/* Bottles */}
+      <Grid item xs={1}>
+        <PreviousArrow />
+      </Grid>
+      <Grid item xs={10}>
+        <Box display="flex" justifyContent="center">
+          <img
+            src={bottleImages[flavour]}
+            height={Math.floor(window.innerHeight / 1.8)}
+          />
+        </Box>
+      </Grid>
+      <Grid item xs={1}>
+        <NextArrow />
+      </Grid>
+    </Grid>
   );
 }

@@ -6,11 +6,13 @@ import DesktopLayout from "./components/DesktopLayout";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Flavour } from "./Sabores";
-import { useSelector } from "react-redux";
+import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
-import { selectFlavour, setFlavour } from "./features/flavours/flavourSlice";
+import {
+  Flavour,
+  selectFlavour,
+  setFlavour,
+} from "./features/flavours/flavourSlice";
 import { getFlavourBgCss } from "./hooks/useFlavour";
 
 interface Bg {
@@ -40,9 +42,12 @@ export default function App() {
 
   const [bg, setBg] = useState<Bg | null>(homeBg);
 
-  useEffect(() => {
-    console.log("[ App.tsx ] route changed to:", location.pathname);
+  const layout = useMemo(
+    () => (isDesktop ? <DesktopLayout /> : <MobileLayout />),
+    [isDesktop]
+  );
 
+  useEffect(() => {
     if (location.pathname !== "/sabores") {
       // Reset the selected flavour
       dispatch(setFlavour(null));
@@ -55,6 +60,8 @@ export default function App() {
       // Set the baground to match the flavour
       if (flavour) {
         setBg(getFlavourBgCss(flavour));
+      } else {
+        dispatch(setFlavour(Flavour.PASSIONFRUIT));
       }
     }
   }, [location, flavour]);
@@ -65,19 +72,16 @@ export default function App() {
   //     "linear-gradient(90deg, rgba(164,216,217,1) 26%, rgba(128,205,198,1) 26%, rgba(128,205,198,1) 74%, rgba(164,216,217,1) 74%)",
   // };
 
-  function Layout() {
-    return isDesktop ? <DesktopLayout /> : <MobileLayout />;
-  }
-
   return (
     <Box
       sx={{
         width: "100vw",
+        transition: "background-color 500ms ease-in-out",
         ...bg,
       }}
     >
       <CssBaseline />
-      <Layout />
+      {layout}
       <StickyFooter />
     </Box>
   );

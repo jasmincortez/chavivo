@@ -147,10 +147,16 @@ export default function MobileLayout() {
         maxWidth="sm"
         component="main"
         sx={{
-          mt: isCurrentPath("/home") ? 0 : `calc(${mobileAppBarHeight} + 1rem)`,
+          mt:
+            isCurrentPath("/home") || isCurrentPath("/sabores")
+              ? 0
+              : `calc(${mobileAppBarHeight} + 1rem)`,
           minHeight: "100dvh",
           borderRadius: "1rem",
-          backgroundColor: isCurrentPath("/home") ? "transparent" : "default",
+          backgroundColor:
+            isCurrentPath("/home") || isCurrentPath("/sabores")
+              ? "transparent"
+              : "default",
         }}
       >
         <Outlet />

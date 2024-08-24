@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton, useMediaQuery } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useState } from "react";
@@ -11,12 +11,14 @@ import {
   getFlavourIndex,
 } from "@/features/flavours/flavourSlice";
 import { useSwipeable } from "react-swipeable";
+import theme from "@/theme";
 
 export default function CaroueslSabores() {
   const flavourState = useAppSelector(selectFlavour);
   const flavour = flavourState || Flavour.HIBISCUS;
   const [slideIndex, setSlideIndex] = useState(getFlavourIndex(flavour));
   const imageCount = Object.keys(bottleImages).length;
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const handlers = useSwipeable({
     onSwipedLeft: (eventData) => onClick("next"),
@@ -89,7 +91,13 @@ export default function CaroueslSabores() {
   };
 
   return (
-    <Grid container alignItems="center" pt={5} {...handlers}>
+    <Grid
+      container
+      alignItems="center"
+      pt={5}
+      mb={isDesktop ? 0 : 8}
+      {...handlers}
+    >
       {/* Bottles */}
       <Grid item xs={1}>
         <PreviousArrow />
@@ -98,8 +106,7 @@ export default function CaroueslSabores() {
         <Box display="flex" justifyContent="center">
           <img
             src={bottleImages[flavour]}
-            height={Math.floor(window.innerHeight / 1.15)}
-            // TODO add mobile condition
+            height={Math.floor(window.innerHeight / (isDesktop ? 1.15 : 1.8))}
           />
         </Box>
       </Grid>

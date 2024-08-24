@@ -12,8 +12,8 @@ import {
   Flavour,
   selectFlavour,
   setFlavour,
+  getFlavourBgCss,
 } from "./features/flavours/flavourSlice";
-import { getFlavourBgCss } from "./hooks/useFlavour";
 
 interface Bg {
   background?: string;

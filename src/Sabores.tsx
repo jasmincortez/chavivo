@@ -29,19 +29,21 @@ export default function Sabores() {
         >
           {flavour}
         </Typography>
-        <Typography
-          color="white"
-          textAlign={"justify"}
-          sx={{
-            fontFamily: "Playfair Display",
-            fontSize: 15,
-            fontStyle: "italic",
-            mt: 2,
-            mb: 5,
-          }}
-        >
-          {getDescription(flavour)}
-        </Typography>
+        <Stack sx={{ mt: 2, mb: 5 }} spacing={2}>
+          {getDescription(flavour).map((line) => (
+            <Typography
+              color="white"
+              textAlign={"justify"}
+              sx={{
+                fontFamily: "Playfair Display",
+                fontSize: 15,
+                fontStyle: "italic",
+              }}
+            >
+              {line}
+            </Typography>
+          ))}
+        </Stack>
       </Stack>
     </Box>
   );

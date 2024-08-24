@@ -2,17 +2,8 @@ import { Outlet } from "react-router-dom";
 import { routes, isCurrentPath, RouterLink } from "@/Router";
 import { Box, Container, Grid, Stack } from "@mui/material";
 import ChaVivoLogo from "./ChaVivoLogo";
-import useFlavour, { getFlavourBgCss } from "@/hooks/useFlavour";
-import { useEffect, useState } from "react";
 
 export default function DesktopLayout() {
-  const { flavour, setFlavour } = useFlavour();
-  const [flavourCss, setFlavourCss] = useState(getFlavourBgCss(flavour));
-
-  useEffect(() => {
-    setFlavourCss(getFlavourBgCss(flavour));
-  }, [flavour]);
-
   return (
     <Box
       sx={{

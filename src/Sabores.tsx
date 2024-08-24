@@ -15,6 +15,7 @@ export default function Sabores() {
       <CarouselSabores />
       <Stack>
         <Typography
+          color="white"
           sx={{
             fontFamily: "Playfair Display",
             fontWeight: "bold",
@@ -26,6 +27,7 @@ export default function Sabores() {
           {flavour}
         </Typography>
         <Typography
+          color="white"
           textAlign={"justify"}
           sx={{
             fontFamily: "Playfair Display",

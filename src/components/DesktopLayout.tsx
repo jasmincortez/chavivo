@@ -42,7 +42,7 @@ export default function DesktopLayout() {
               ))}
           </Stack>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={isCurrentPath("/onde-encontrar") ? 9 : 6}>
           <Container
             maxWidth="md"
             component="main"
@@ -57,9 +57,6 @@ export default function DesktopLayout() {
           >
             <Outlet />
           </Container>
-        </Grid>
-        <Grid item xs={3} sx={{ display: "flex", justifyContent: "center" }}>
-          {/* <ChaVivoLogo isDesktop /> */}
         </Grid>
       </Grid>
     </Box>

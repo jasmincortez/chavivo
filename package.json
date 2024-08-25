@@ -15,6 +15,7 @@
     "@mui/material": "latest",
     "@reduxjs/toolkit": "^2.2.7",
     "@types/react-slick": "^0.23.13",
+    "@types/react-window": "^1.8.8",
     "@vis.gl/react-google-maps": "^1.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
@@ -24,6 +25,7 @@
     "react-router-dom": "^6.22.3",
     "react-slick": "^0.30.2",
     "react-swipeable": "^7.0.1",
+    "react-window": "^1.8.10",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0"
   },

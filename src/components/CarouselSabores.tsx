@@ -18,7 +18,7 @@ export default function CaroueslSabores() {
   const flavour = flavourState || Flavour.HIBISCUS;
   const [slideIndex, setSlideIndex] = useState(getFlavourIndex(flavour));
   const imageCount = Object.keys(bottleImages).length;
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
   const handlers = useSwipeable({
     onSwipedLeft: (eventData) => onClick("next"),

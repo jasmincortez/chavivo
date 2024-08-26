@@ -144,7 +144,7 @@ export default function MobileLayout() {
       </nav>
 
       <Container
-        maxWidth="sm"
+        maxWidth="lg"
         component="main"
         sx={{
           mt:

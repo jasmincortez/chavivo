@@ -1,8 +1,6 @@
 import {
   Box,
-  ListItem,
-  ListItemButton,
-  ListItemText,
+  ButtonBase,
   Stack,
   Typography,
   useMediaQuery,
@@ -11,36 +9,14 @@ import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import { stores } from "./data/Stores";
 import { MapMarker } from "./components/MapMarker";
 import theme from "./theme";
-import { FixedSizeList, ListChildComponentProps } from "react-window";
-
-/**
- * Function that renders each individual row in the list.
- */
-function renderRow(props: ListChildComponentProps) {
-  const { index, style } = props;
-
-  const store = stores[index];
-  const subtitle = [
-    store.address,
-    store.address2,
-    store.city,
-    store.state,
-    store.country,
-  ].join(", ");
-
-  return (
-    <ListItem style={style} key={index} component="div" disablePadding>
-      <ListItemButton>
-        <ListItemText primary={store.name} secondary={subtitle} />
-      </ListItemButton>
-    </ListItem>
-  );
-}
+import { useAppDispatch } from "./store/hooks";
+import { setActiveMarker } from "./features/map/mapSlice";
 
 const MAP_HEIGHT = 512;
 
 export default function OndeEncontrar() {
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const dispatch = useAppDispatch();
 
   return (
     <Box>
@@ -49,15 +25,30 @@ export default function OndeEncontrar() {
       </Typography>
       <Stack direction={isDesktop ? "row" : "column-reverse"}>
         {/* TODO: add interactive legend/ search bar*/}
-        <FixedSizeList
-          height={MAP_HEIGHT}
-          width={320}
-          itemSize={136}
-          itemCount={stores.length}
-          overscanCount={5}
-        >
-          {renderRow}
-        </FixedSizeList>
+        <Stack spacing={2} sx={{ overflowY: "scroll", height: MAP_HEIGHT }}>
+          {stores.map((store) => {
+            return (
+              <ButtonBase
+                key={store.id}
+                sx={{ textAlign: "start", justifyContent: "start", p: 1 }}
+                onClick={() => dispatch(setActiveMarker(store.id))}
+              >
+                <Stack spacing={0.5}>
+                  <Typography fontWeight={700}>{store.name}</Typography>
+                  <Typography variant="body2">{store.address}</Typography>
+                  <Typography variant="body2">{store.address2}</Typography>
+                  <Typography variant="body2">{store.city}</Typography>
+                  <Typography variant="body2">{store.state}</Typography>
+                  <Typography variant="body2">{store.country}</Typography>
+
+                  {store.phone && (
+                    <Typography variant="body2">{store.phone}</Typography>
+                  )}
+                </Stack>
+              </ButtonBase>
+            );
+          })}
+        </Stack>
         <APIProvider
           apiKey="AIzaSyAwms3txiyHM6ZcWdebVJCerR7LtMm8hDM"
           language="pt-BR"
@@ -73,13 +64,7 @@ export default function OndeEncontrar() {
           >
             {stores.map((store) => {
               return (
-                <MapMarker
-                  title={store.name}
-                  lat={store.lat}
-                  lng={store.lng}
-                  key={store.id}
-                  id={store.id}
-                >
+                <MapMarker store={store} key={store.id}>
                   <Typography>
                     {store.address}
                     {store.address2}

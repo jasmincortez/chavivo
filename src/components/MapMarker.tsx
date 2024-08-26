@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import {
   AdvancedMarker,
   InfoWindow,
@@ -7,12 +7,10 @@ import {
 import { Typography } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { selectActiveMarker, setActiveMarker } from "@/features/map/mapSlice";
+import { Store } from "@/data/Stores";
 
 export interface MapMarkerProps extends PropsWithChildren {
-  lat: number;
-  lng: number;
-  title: string;
-  id: string;
+  store: Store;
 }
 
 export const MapMarker = (props: MapMarkerProps) => {
@@ -25,17 +23,17 @@ export const MapMarker = (props: MapMarkerProps) => {
     <>
       <AdvancedMarker
         ref={markerRef}
-        onClick={() => dispatch(setActiveMarker(props.id))}
-        position={{ lat: props.lat, lng: props.lng }}
-        title={props.title}
+        onClick={() => dispatch(setActiveMarker(props.store.id))}
+        position={{ lat: props.store.lat, lng: props.store.lng }}
+        title={props.store.name}
       />
-      {props.id === selectedMarker && (
+      {props.store.id === selectedMarker && (
         <InfoWindow
           anchor={marker}
           maxWidth={200}
           onCloseClick={() => dispatch(setActiveMarker(""))}
           headerContent={
-            <Typography fontWeight={700}>{props.title}</Typography>
+            <Typography fontWeight={700}>{props.store.name}</Typography>
           }
         >
           {props.children}

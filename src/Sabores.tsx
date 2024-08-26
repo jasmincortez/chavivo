@@ -34,6 +34,7 @@ export default function Sabores() {
             <Typography
               color="white"
               textAlign={"justify"}
+              key={line}
               sx={{
                 fontFamily: "Playfair Display",
                 fontSize: 15,

@@ -9,9 +9,7 @@ import {
   Drawer,
   IconButton,
   List,
-  Slide,
   Toolbar,
-  useScrollTrigger,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import theme from "@/theme";
@@ -75,54 +73,35 @@ export default function MobileLayout() {
     </Box>
   );
 
-  const appBarBg = {
-    backgroundColor: "transparent",
-    // backdropFilter: "blur(5px)",
-  };
-
-  interface HideOnScrollProps {
-    children: React.ReactElement;
-  }
-
-  function HideOnScroll(props: HideOnScrollProps) {
-    const trigger = useScrollTrigger();
-
-    return (
-      <Slide appear={false} direction="down" in={!trigger}>
-        {props.children}
-      </Slide>
-    );
-  }
   return (
     <>
-      <HideOnScroll>
-        <AppBar
-          component="nav"
-          elevation={0}
-          sx={{ height: mobileAppBarHeight, ...appBarBg }}
+      <AppBar
+        component="nav"
+        elevation={0}
+        position="relative"
+        sx={{ backgroundColor: "transparent" }}
+      >
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+            py: 2,
+          }}
         >
-          <Toolbar
+          {/* Hamburger Icon */}
+          <IconButton
+            aria-label="open drawer"
+            onClick={handleDrawerToggle}
             sx={{
-              justifyContent: "space-between",
-              alignItems: "center",
-              py: 2,
+              backgroundColor: "#000000",
+              color: theme.palette.primary.main,
+              boxShadow: 2,
             }}
           >
-            {/* Hamburger Icon */}
-            <IconButton
-              aria-label="open drawer"
-              onClick={handleDrawerToggle}
-              sx={{
-                backgroundColor: "#000000",
-                color: theme.palette.primary.main,
-                boxShadow: 2,
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <nav>
         <Drawer
           container={window.document.body}
@@ -147,12 +126,7 @@ export default function MobileLayout() {
         maxWidth="lg"
         component="main"
         sx={{
-          mt:
-            isCurrentPath("/home") || isCurrentPath("/sabores")
-              ? 0
-              : isCurrentPath("/onde-encontrar")
-              ? 10
-              : `calc(${mobileAppBarHeight} + 1rem)`,
+          mt: 2,
           minHeight: "100dvh",
           borderRadius: "1rem",
           backgroundColor:

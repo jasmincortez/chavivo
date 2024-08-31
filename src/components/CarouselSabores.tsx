@@ -1,7 +1,6 @@
 import { Box, Grid, IconButton, useMediaQuery } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
   selectFlavour,
@@ -16,7 +15,7 @@ import theme from "@/theme";
 export default function CaroueslSabores() {
   const flavourState = useAppSelector(selectFlavour);
   const flavour = flavourState || Flavour.HIBISCUS;
-  const [slideIndex, setSlideIndex] = useState(getFlavourIndex(flavour));
+  const slideIndex = getFlavourIndex(flavour);
   const imageCount = Object.keys(bottleImages).length;
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -59,11 +58,9 @@ export default function CaroueslSabores() {
   const onClick = (type: "next" | "previous") => {
     if (type === "next") {
       const newIndex = slideIndex < imageCount - 1 ? slideIndex + 1 : 0;
-      setSlideIndex(newIndex);
       handleChangeIndex(newIndex);
     } else {
       const newIndex = slideIndex > 0 ? slideIndex - 1 : imageCount - 1;
-      setSlideIndex(newIndex);
       handleChangeIndex(newIndex);
     }
   };

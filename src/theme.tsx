@@ -59,6 +59,15 @@ const theme = createTheme({
         },
       },
     },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          "&.Mui-selected": {
+            color: "white",
+          },
+        },
+      },
+    },
   },
 });
 
@@ -70,7 +79,7 @@ declare module "@mui/material/styles" {
     font: PaletteColor;
   }
   interface PaletteOptions {
-    highlight: PaletteColor;
-    font: PaletteColor;
+    highlight?: PaletteOptions["primary"];
+    font?: PaletteOptions["primary"];
   }
 }

@@ -150,6 +150,8 @@ export default function MobileLayout() {
           mt:
             isCurrentPath("/home") || isCurrentPath("/sabores")
               ? 0
+              : isCurrentPath("/onde-encontrar")
+              ? 10
               : `calc(${mobileAppBarHeight} + 1rem)`,
           minHeight: "100dvh",
           borderRadius: "1rem",

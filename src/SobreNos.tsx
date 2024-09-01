@@ -1,17 +1,50 @@
-import { Box, Typography } from "@mui/material";
-import Carousel from "./components/Carousel";
+import {
+  Avatar,
+  AvatarProps,
+  Box,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import Carousel from "react-material-ui-carousel";
+import theme from "./theme";
 
 const images = [
-  "./people/avatar_6.jpg",
-  "./people/avatar_1.jpg",
-  "./people/avatar_2.jpg",
-  "./people/avatar_4.jpg",
+  "./people/avatar_6_compressed.jpg",
+  "./people/avatar_1_compressed.jpg",
+  "./people/avatar_2_compressed.jpg",
+  "./people/avatar_4_compressed.jpg",
   "./people/avatar_7.jpg",
-  "./people/avatar_5.jpg",
-  "./people/avatar_3.jpg",
+  "./people/avatar_5_compressed.jpg",
+  "./people/avatar_3_compressed.jpg",
 ];
 
+const slidePairs = [[0, 1], [2, 3], [4, 5], [6]];
+
+interface CustomAvatarProps extends AvatarProps {
+  size: number;
+}
+
+const CustomAvatar = (props: CustomAvatarProps) => {
+  return (
+    <Avatar
+      sx={{
+        height: props.size,
+        width: props.size,
+        margin: "0 auto",
+        boxShadow: 2,
+        filter: "grayScale(100%)",
+        "&:hover": { filter: "none" },
+        transition: "all 400ms ease-in-out",
+      }}
+      {...props}
+    />
+  );
+};
+
 export default function SobreNos() {
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const SLIDE_WIDTH = isDesktop ? 288 : 160;
+
   return (
     <Box
       sx={{
@@ -20,8 +53,25 @@ export default function SobreNos() {
         alignItems: "center",
       }}
     >
-      <Carousel images={images} slidesToShow={2} />
-
+      <Box width="100%" height={SLIDE_WIDTH + 48}>
+        <Carousel navButtonsAlwaysInvisible={!isDesktop}>
+          {slidePairs.map((pair, i) => (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                px: isDesktop ? 6 : 0,
+              }}
+              key={i}
+            >
+              <CustomAvatar src={images[pair[0]]} size={SLIDE_WIDTH} />
+              {pair.length > 1 && (
+                <CustomAvatar src={images[pair[1]]} size={SLIDE_WIDTH} />
+              )}
+            </Box>
+          ))}
+        </Carousel>
+      </Box>
       <Typography
         textAlign={"center"}
         sx={{

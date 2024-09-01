@@ -33,7 +33,9 @@ export const MapMarker = (props: MapMarkerProps) => {
           maxWidth={200}
           onCloseClick={() => dispatch(setActiveMarker(""))}
           headerContent={
-            <Typography fontWeight={700}>{props.store.name}</Typography>
+            <Typography mb={1} fontSize={14} fontWeight={700}>
+              {props.store.name}
+            </Typography>
           }
         >
           {props.children}

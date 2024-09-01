@@ -1,6 +1,7 @@
 import {
   Box,
   ButtonBase,
+  Link,
   Paper,
   Stack,
   Tab,
@@ -44,6 +45,22 @@ function a11yProps(index: number) {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
   };
+}
+
+function getDirectionParamsForStore(store: Store) {
+  const line1 = store.address
+    .split(/[\s.,-]/)
+    .filter((c) => c !== "")
+    .join("+");
+  const line2 = store.address2
+    .split(/[\s.,-]/)
+    .filter((c) => c !== "")
+    .join("+");
+  const city = store.city
+    .split(/[\s.,-]/)
+    .filter((c) => c !== "")
+    .join("+");
+  return `destination=${line1}%2C+${line2}%2C+${city}`;
 }
 
 export default function OndeEncontrar() {
@@ -111,7 +128,6 @@ export default function OndeEncontrar() {
                     <Typography variant="body2">{store.city}</Typography>
                     {/* <Typography variant="body2">{store.state}</Typography>
                     <Typography variant="body2">{store.country}</Typography> */}
-
                     {store.phone && (
                       <Typography variant="body2">{store.phone}</Typography>
                     )}
@@ -142,12 +158,30 @@ export default function OndeEncontrar() {
             mapId="o-mapa"
           >
             {stores.map((store) => {
+              const params = getDirectionParamsForStore(store);
+              const mapsLink = `https://www.google.com/maps/dir/?api=1&${params}`;
               return (
                 <MapMarker store={store} key={store.id}>
-                  <Typography>
-                    {store.address}
-                    {store.address2}
-                  </Typography>
+                  <Stack spacing={0.5}>
+                    <Typography fontSize={13}>{store.address}</Typography>
+                    <Typography fontSize={13}>{store.address2}</Typography>
+                    <Typography fontSize={13}>{store.city}</Typography>
+                    {/* <Typography fontSize={13}>{store.state}</Typography>
+                    <Typography fontSize={13}>{store.country}</Typography> */}
+                    {store.phone && (
+                      <Link
+                        color="textPrimary"
+                        fontSize={13}
+                        variant="body2"
+                        href={`tel:${store.phone}`}
+                      >
+                        {store.phone}
+                      </Link>
+                    )}
+                    <Link color="textPrimary" target="_blank" href={mapsLink}>
+                      Direções no Google Maps
+                    </Link>
+                  </Stack>
                 </MapMarker>
               );
             })}

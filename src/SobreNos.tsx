@@ -54,7 +54,11 @@ export default function SobreNos() {
       }}
     >
       <Box width="100%" height={SLIDE_WIDTH + 48}>
-        <Carousel navButtonsAlwaysInvisible={!isDesktop}>
+        <Carousel
+          navButtonsAlwaysInvisible={!isDesktop}
+          interval={3000}
+          swipe={false}
+        >
           {slidePairs.map((pair, i) => (
             <Box
               sx={{

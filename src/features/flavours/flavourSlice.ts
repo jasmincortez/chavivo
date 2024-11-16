@@ -13,34 +13,45 @@ export function getDescription(flavour: Flavour | null): string[] {
   switch (flavour) {
     case Flavour.PASSIONFRUIT:
       return [
-        "Feito com Kombuchá Base, tem a acidez e o gostinho tropical característicos do Maracujá, um ligeiro dulçor e frizância. Encanta pela sua elegância e sutileza.",
+        "Na boca:",
+        "A acidez e o gostinho tropical característicos do MARACUJÁ DOCE, com gás.",
         "Além do sabor o que mais tem de bom?",
-        "O Maracujá auxilia no relaxamento, tendo ação calmante e atenuando dores atribuídas ao estresse e tensão, como dores musculares e de cabeça. Isso porque possui alcaloides e ﬂavonoides que atuam como tranquilizantes no sistema nervoso central.",
+        "O KOMBUCHÁ protege o fígado, equilibra a flora intestinal e auxilia na digestão, entre outros benefícios.",
+        "O MARACUJÁ tem ação calmante, antioxidante, auxilia na digestão e é benéfico para os olhos.",
       ];
     case Flavour.LAVENDER:
       return [
-        "O sabor altamente floral da Lavanda é quebrado pela acidez e a frizância do Kombuchá Base, conferindo um sabor adocicado, incomum e delicioso.",
+        "Na boca:",
+        "O sabor altamente floral da LAVANDA é quebrado pela acidez e a frizância do KOMBUCHÁ, conferindo um sabor adocicado, inusitado e delicioso.",
         "Além do sabor o que mais tem de bom?",
-        "A Lavanda, que surpreende pelo sabor inusitado, traz seus vastos benefícios conhecidos na aromaterapia: tem ação sedativa, analgésica, antiinﬂamatória, bactericida e cicatrizante. Muito eﬁcaz para minimizar ansiedade e distúrbios do sono.",
+        "A LAVANDA tem ação analgésica, anti-inflamatória, bactericida, sedativa e cicatrizante.",
+        "O KOMBUCHÁ ajuda na digestão, é antioxidante, auxilia no processo de emagrecimento e protege o fígado, entre outros benefícios.",
       ];
     case Flavour.LEMON_AND_GINGER:
       return [
-        "Feito com nosso Kombuchá Base. Gasoso, doce na medida certa e altamente refrescante. A intensidade do Gengibre é atenuada pelo perfume do Limão Tahiti.",
+        "Na boca:",
+        "Gasoso, doce na medida certa e altamente refrescante, com a intensidade do GENGIBRE sendo atenuada pelo perfume do LIMÃO Tahiti.",
         "Além do sabor o que mais tem de bom?",
-        "O Kombuchá é repleto de vitaminas, ácidos benéficos e minerais. Protege o fígado, equilibra a flora intestinal e auxilia na digestão. O Limão Tahiti possui propriedades antioxidantes, fortalece o sistema imunológico e equilibra os níveis de PH do organismo. O Gengibre desintoxica, é antiinﬂamatório, anticoagulante, bactericida e acelera o metabolismo.",
+        "O KOMBUCHÁ é repleto de vitaminas, ácidos e minerais, protege o fígado, equilibra a flora intestinal e auxilia na digestão.",
+        "O LIMÃO possui propriedades antioxidantes, fortalece o sistema imunológico e equilibra os níveis de PH no sangue.",
+        "O GENGIBRE desintoxica, é anti-inflamatório, anticoagulante, antioxidante e bactericida.",
       ];
     case Flavour.HIBISCUS:
       return [
         "Na boca:",
         "O azedinho do chá da flor do HIBISCO vem na frente, seguido pela explosão do MORANGO, um ligeiro dulçor e frizância.",
         "Além do sabor o que mais tem de bom?",
-        "O KOMBUCHÁ protege o fígado, equilibra a flora intestinal e auxilia na digestão, entre outros benefícios. O HIBISCO tem ação antioxidante, anti-hipertensiva, diurética, anti-inflamatória, relaxante, digestiva e calmante. O MORANGO tem ação antioxidante e anti-inflamatória e auxilia no controle da glicemia.",
+        "O KOMBUCHÁ protege o fígado, equilibra a flora intestinal e auxilia na digestão, entre outros benefícios.",
+        "O HIBISCO tem ação antioxidante, anti-hipertensiva, diurética, anti-inflamatória, relaxante, digestiva e calmante.",
+        "O MORANGO tem ação antioxidante e anti-inflamatória e auxilia no controle da glicemia.",
       ];
     case Flavour.JUN:
       return [
-        "Fermentado com mel e nada mais. A acidez característica do Kombuchá e o sabor inigualável do mel com o toque luxuoso das minúsculas bolhas de gás. Praticamente uma champanhe, só que sem álcool.",
+        "Na boca:",
+        "A acidez característica do KOMBUCHÁ e o sabor inigualável do mel com o toque luxuoso das minúsculas bolhas de gás. Praticamente uma champanhe.",
         "Além do sabor o que mais tem de bom?",
-        "O Mel é um antibiótico natural, fortalece o sistema imunológico, tonifica órgãos, é antiinflamatório e altamente nutritivo",
+        "O MEL, além de ser um antibiótico natural, fortalece o sistema imunológico, tonifica órgãos como os pulmões e o estômago, é anti-inflamatório e é altamente nutritivo.",
+        "O KOMBUCHÁ protege o fígado, equilibra a flora intestinal e auxilia na digestão, entre outros benefícios.",
       ];
     default:
       return [""];

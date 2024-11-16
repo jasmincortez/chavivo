@@ -31,9 +31,10 @@ export function getDescription(flavour: Flavour | null): string[] {
       ];
     case Flavour.HIBISCUS:
       return [
-        "Feito a partir do Kombuchá Base. O azedinho do chá da Flor de Hibisco vem na frente, seguido pela explosão do Morango.",
+        "Na boca:",
+        "O azedinho do chá da flor do HIBISCO vem na frente, seguido pela explosão do MORANGO, um ligeiro dulçor e frizância.",
         "Além do sabor o que mais tem de bom?",
-        "O Hibisco, rico em antocianinas - pigmento natural com ação antioxidante - tem potencial anti hipertensivo, diurético, antinflamatório, relaxante, digestivo e calmante. O Morango, é fonte de vitamina C, tem ação antioxidante, antiinﬂamatória e auxilia no controle da glicemia",
+        "O KOMBUCHÁ protege o fígado, equilibra a flora intestinal e auxilia na digestão, entre outros benefícios. O HIBISCO tem ação antioxidante, anti-hipertensiva, diurética, anti-inflamatória, relaxante, digestiva e calmante. O MORANGO tem ação antioxidante e anti-inflamatória e auxilia no controle da glicemia.",
       ];
     case Flavour.JUN:
       return [

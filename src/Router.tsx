@@ -26,7 +26,7 @@ export interface RouteDefinition {
   render: boolean;
 }
 
-export const BASE_URL = "/chavivo/";
+export const BASE_URL = "";
 
 export const routes: RouteDefinition[] = [
   {

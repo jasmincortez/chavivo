@@ -25,10 +25,7 @@ export default function InfoKbc() {
         <br />
         {"Kombucha é Chá Vivo. Chá Vivo é saúde."}
       </Typography>
-      <img
-        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/1ad99e9834f1eb34fa751591ff483c79.png"
-        width="280px"
-      />
+      {/* <img src="" width="280px" /> */}
       <Typography textAlign={"justify"}>
         <br />
         {

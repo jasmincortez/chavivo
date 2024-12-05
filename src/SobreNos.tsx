@@ -89,10 +89,7 @@ export default function SobreNos() {
         <br />
         {"sediada no coração do Rio de Janeiro!"}
       </Typography>
-      <img
-        src="https://www.chavivo.com.br/site/wp-content/uploads/2022/04/6e7e583e71fc74bb9245726d6fc24f0f.png"
-        width="280px"
-      />
+      {/* <img src="" width="280px" /> */}
       <Typography textAlign={"justify"}>
         <br />
         {
